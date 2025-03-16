@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomSite xmlns="http://soap.sforce.com/2006/04/metadata">
-    <active>true</active>
+    <active>false</active>
     <allowGuestPaymentsApi>false</allowGuestPaymentsApi>
     <allowHomePage>false</allowHomePage>
     <allowStandardAnswersPages>false</allowStandardAnswersPages>
@@ -23,8 +23,8 @@
     <redirectToCustomDomain>false</redirectToCustomDomain>
     <referrerPolicyOriginWhenCrossOrigin>true</referrerPolicyOriginWhenCrossOrigin>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>epic.ed331733842325688@orgfarm.th</siteAdmin>
-    <siteGuestRecordDefaultOwner>epic.ed331733842325688@orgfarm.th</siteGuestRecordDefaultOwner>
+    <siteAdmin>epic.a0b1166ee79c@orgfarm.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>epic.a0b1166ee79c@orgfarm.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
     <urlPathPrefix>vforcesite</urlPathPrefix>
 </CustomSite>
