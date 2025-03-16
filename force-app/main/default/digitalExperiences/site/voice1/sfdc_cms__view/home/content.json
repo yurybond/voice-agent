@@ -1,0 +1,82 @@
+{
+  "type" : "sfdc_cms__view",
+  "title" : "Voice-Command",
+  "contentBody" : {
+    "component" : {
+      "children" : [ {
+        "children" : [ {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "layoutDirectionDesktop" : "row",
+            "layoutDirectionMobile" : "column",
+            "layoutDirectionTablet" : "column",
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"82af63c4-c709-4ed0-93f3-446bba3b9e2a\",\"columns\":[{\"UUID\":\"5d23aee3-a59e-4ebf-bed8-96f9c2fdcee0\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":null}]}",
+            "sectionMinHeight" : "",
+            "sectionVerticalAlign" : "flex-start"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : { },
+              "definition" : "c:voiceRecognition",
+              "id" : "0ec728a3-694f-4d94-b1af-3e706eb9e623",
+              "type" : "component"
+            }, {
+              "attributes" : { },
+              "definition" : "c:voiceRecognitionErrorHandler",
+              "id" : "29464246-6beb-4471-b791-391e8da2f914",
+              "type" : "component"
+            }, {
+              "attributes" : {
+                "deploymentName" : "ESA_Web_Deployment",
+                "hideChatButtonOnLoad" : "Default",
+                "scrtUrl" : "https://daj00000gvwlzeax-dev-ed.develop.my.salesforce-scrt.com",
+                "siteEndpoint" : "https://daj00000gvwlzeax-dev-ed.develop.my.site.com/ESWESAWebDeployment1724800920657"
+              },
+              "definition" : "experience_messaging:embeddedMessaging",
+              "id" : "60b443c0-d102-4b7c-b9c4-de938391301d",
+              "type" : "component"
+            } ],
+            "id" : "5d23aee3-a59e-4ebf-bed8-96f9c2fdcee0",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "82af63c4-c709-4ed0-93f3-446bba3b9e2a",
+          "type" : "component"
+        } ],
+        "id" : "e4f9e191-647b-47ec-9344-fda1e228faaa",
+        "name" : "content",
+        "title" : "Content",
+        "type" : "region"
+      }, {
+        "children" : [ {
+          "attributes" : {
+            "customHeadTags" : "",
+            "description" : "",
+            "pageTitle" : "Voice-Command",
+            "recordId" : "{!recordId}"
+          },
+          "definition" : "community_builder:seoAssistant",
+          "id" : "12c3bf60-36ad-4fb4-877b-d89bb3a1759a",
+          "type" : "component"
+        } ],
+        "id" : "06d7138c-a74e-47bb-9a2b-b739d4d20d4a",
+        "name" : "sfdcHiddenRegion",
+        "title" : "sfdcHiddenRegion",
+        "type" : "region"
+      } ],
+      "definition" : "community_layout:sldsFlexibleLayout",
+      "id" : "db05b0f3-757f-4f99-86e2-17ccd2349e44",
+      "type" : "component"
+    },
+    "dataProviders" : [ ],
+    "themeLayoutType" : "Inner",
+    "viewType" : "home"
+  },
+  "urlName" : "home"
+}
