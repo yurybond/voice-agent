@@ -22,13 +22,13 @@
           "children" : [ {
             "children" : [ {
               "attributes" : { },
-              "definition" : "c:voiceRecognition",
-              "id" : "c2c5be2a-ee87-4bde-b947-6744dc4d55ee",
+              "definition" : "c:voiceAssistant",
+              "id" : "c5e14395-511a-47a6-9da4-063b34347b97",
               "type" : "component"
             }, {
               "attributes" : { },
-              "definition" : "c:voiceRecognitionErrorHandler",
-              "id" : "56d9a0a6-daf4-40ef-95eb-43de95867494",
+              "definition" : "c:voiceAssistantLog",
+              "id" : "0fa6a517-b95e-4e92-b2c7-c82237a0f682",
               "type" : "component"
             } ],
             "id" : "de414aa6-604f-4496-b312-06391a6e173d",

@@ -1,0 +1,16 @@
+<template>
+    <div class="chat-container">
+        <div class="messages-wrapper">
+            <div class="message-list">
+                <template iterator:message={messages}>
+                    <div key={message.value.id} class="message-item">
+                        <div class="message-bubble" data-state={message.value.sender}>
+                            <div class="message-text">{message.value.text}</div>
+                            <div class="message-time">{message.value.time}</div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+</template>

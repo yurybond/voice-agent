@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <masterLabel>VoiceMessageChannel</masterLabel>
+    <isExposed>true</isExposed>
+    <description>Message Channel for Voice Assistant Communication</description>
+    <lightningMessageFields>
+        <fieldName>sender</fieldName>
+        <description>Sender of the message</description>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <fieldName>message</fieldName>
+        <description>Message text</description>
+    </lightningMessageFields>
+        <lightningMessageFields>
+        <fieldName>type</fieldName>
+        <description>Event Type</description>
+    </lightningMessageFields>
+</LightningMessageChannel>

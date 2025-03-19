@@ -1,0 +1,54 @@
+.voice-assistant-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.button-container {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    background: #FBFAFA;
+    border-top: 1px solid #e0e0e0;
+}
+
+.voice-button {
+    width: 160px;
+    height: 160px;
+    border-radius: 80px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    color: #FBFAFA;
+    text-align: center;
+    transition: all 0.3s ease;
+    background: linear-gradient(30deg, #0078C2, #4A71BD, #8453D2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.voice-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.voice-button:active {
+    transform: scale(1.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.voice-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+.voice-button[data-state="THINKING"]
+.voice-button[data-state="REPLYING"]
+.voice-button[data-state="PUSH_TO_STOP"] {
+    animation: thinking-pulse 1.5s infinite;
+}
+
+@keyframes thinking-pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
-    <apiVersion>62.0</apiVersion>
+    <apiVersion>63.0</apiVersion>
     <isExposed>true</isExposed>
-    <masterLabel>Voice Recognition Error Handler</masterLabel>
-    <description>Component that use handle voice recognition errors.</description>
+    <masterLabel>Voice Assitant Conversation Log</masterLabel>
+    <description>Requests of user and replies of AI Agent will be displayed in a text format using web-chat like interface.</description>
     <targets>
         <target>lightningCommunity__Page</target>
     </targets>

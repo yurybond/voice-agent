@@ -2,8 +2,8 @@
 <LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>63.0</apiVersion>
     <isExposed>true</isExposed>
-    <masterLabel>Voice Recognition</masterLabel>
-    <description>Component that use browser capabilities to licten and recognize voice commands.</description>
+    <masterLabel>Voice Assitant</masterLabel>
+    <description>Component to receive voice commands and convert Agentfoce response to speech.</description>
     <targets>
         <target>lightningCommunity__Page</target>
     </targets>
