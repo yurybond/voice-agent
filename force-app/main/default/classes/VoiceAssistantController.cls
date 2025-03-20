@@ -1,11 +1,15 @@
 public with sharing class VoiceAssistantController {
+
     @AuraEnabled
-    public static String processVoiceInput(String userInput, Decimal latitude, Decimal longitude) {
+    public static VoiceAssistantAgentService.AgentResponse processVoiceInput(String userInput, String agentSessionId, Decimal latitude, Decimal longitude) {
         try {
-            // Return the response
-            return 'I have received a message: ' + userInput;
+
+            Location location =  Location.newInstance(latitude, longitude);
+            Id contactId = [SELECT ContactId FROM User WHERE Id = :UserInfo.getUserId()]?.ContactId ?? NULL;
+            VoiceAssistantAgentService.AgentResponse reply = VoiceAssistantAgentService.passCommandToAgentforce(contactId, userInput, location, agentSessionId);
+
+            return reply;
         } catch (Exception e) {
-            System.debug(LoggingLevel.ERROR, 'Error processing voice input: ' + e.getMessage());
             throw new AuraHandledException('Error processing voice input: ' + e.getMessage());
         }
     }
