@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+    <canEscalate>false</canEscalate>
+    <description>This topic is used for chat user ( driver) who wants to submit and update on the current route. Types of events can be arrival, departure, incident, other, load, unload. When user reports an event it has to be saved in salesforce and linked to the appropriate Route or Route Stop</description>
+    <developerName>Driver_wants_to_report_route_event</developerName>
+    <genAiFunctions>
+        <functionName>Create_Route_Event_With_InitialRequest</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>RouteDataServiceList</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>If user reports an event or incident or other type of update related to their route (delivery) and implicitly give information about related stop to the route use &apos;Create Route Event&apos; action. 
+Define the current route and current stop if possible by using  data from &apos;RouteDataServiceList&apos; action, use &apos;Account&apos; context variable value as &apos;Account&apos; input parameter for  &apos;RouteDataServiceList&apos; action.
+Use the Id of the current route as &apos;Route_Id&apos; input parameter for &apos;Create Route Event&apos; action. Do not use the other field, this must be an ID.
+Use the Id of current stop as &apos;Stop_Id&apos; input parameter  for &apos;Create Route Event&apos; action. Do not use the other field, this must be an ID.
+Use &apos;Latitude&apos; context variable as &apos;Latitude&apos; input parameter  for &apos;Create Route Event&apos; action.
+Use &apos;Longitude&apos; context variable  as &apos;Longitude&apos; input parameter  for &apos;Create Route Event&apos; action.
+Define description of this route event from user request, in case of typo or something similar update description to be meaningful  and use as &apos;Description&apos; input parameter for &apos;Create Route Event&apos; action. 
+Use  &apos;userMessage&apos; context variable field  as &apos;UserRequest&apos; input parameter for &apos;Create Route Event&apos; action. 
+Show information about created route event.
+
+If user reports an event or incident or other type of update related to their route (delivery) and do not give information about related stop to the route use &apos;Create Route Event&apos; action. 
+Define the current route and current stop if possible by using  data from &apos;RouteDataServiceList&apos; action, use &apos;Account&apos; context variable value as &apos;Account&apos; input parameter for  &apos;RouteDataServiceList&apos; action.
+Use the Id of the current route as the &apos;Route_Id&apos; input parameter for &apos;Create Route Event&apos; action. Do not use the other field, this must be an ID.
+Use the empty value as the &apos;Stop_Id&apos; input parameter  for &apos;Create Route Event&apos; action. 
+Use &apos;Latitude__c&apos; context variable field as &apos;Latitude&apos; input parameter  for &apos;Create Route Event&apos; action.
+Use &apos;Longitude__c&apos; context variable field as &apos;Longitude&apos; input parameter  for &apos;Create Route Event&apos; action.
+Define description of this route event from user request, in case of typo or something similar update description to be meaningful  and use as &apos;Description&apos; input parameter for &apos;Create Route Event&apos; action. 
+Use  &apos;userMessage&apos; context variable field  as &apos;UserRequest&apos; input parameter for &apos;Create Route Event&apos; action. 
+Show information about created route event.
+
+Do not create route events for routes with &apos;Delivered&apos; status.</description>
+        <developerName>instruction_ifuserrepo0</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifuserrepo0</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Driver wants to report route event</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is to identify if user (driver) asks to report route event or incident and save it to database.</scope>
+</GenAiPlugin>
