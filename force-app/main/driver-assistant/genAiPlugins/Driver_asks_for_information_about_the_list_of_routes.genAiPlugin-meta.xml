@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+    <canEscalate>false</canEscalate>
+    <description>Use this topic when the user wants information about the list of routes like upcoming or delivered routes. User request can look like:
+&quot;Do I have routes for next Monday?&quot;
+&quot;Do I have new routes for the next week?&quot;
+&quot;Give me the list of upcoming routes&quot;</description>
+    <developerName>Driver_asks_for_information_about_the_list_of_routes</developerName>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__IdentifyRecordByName</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>RouteDataServiceAction</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>Define the needed information by using  data from &apos;RouteDataService2&apos; action, use &apos;Contact&apos; context variable value as &apos;Contact&apos; input parameter for  &apos;RouteDataService2&apos; action.
+Respond with information about that list of routes strictly in the following format:
+The route starts from the first stop and then goes to other stops, the order of the stops is indicated as &quot;sequence number&quot;. Provide brief information about each route in the format: 
+Number of routes for the specified period:
+Stop city#1 to Stop city#2, arrival date strictly in format like &quot;Monday, February 3rd&quot; or use &quot;yesterday&quot;, &quot;today&quot; , &quot;tomorrow&quot;, &quot;next monday&quot; if possible.
+For example:
+&apos;You have 11 routes for next week:
+New York to Chicago on the 4th of February
+Chicago to Illinois on the 6th of February
+Illinois to New York on the 8th of February&apos;
+There is no need to provide additional information(phone, address, timezone) about routes and stops unless requested by the user.
+
+1. Define upcoming routes where &apos;expectedArrivalStartTime&apos; or &apos;&apos; from &apos;RouteDataService2&apos; action equal or more than today and &apos;status&apos; is &apos;New&apos;. Display it in format: 
+&lt;ORIGIN CITY&gt; &lt;DESTINATION CITY&gt; &lt;STATUS&gt;  &lt;expectedArrivalStartTime&gt;
+2. Define current routes where today date is between route start date and route end date.  Display it in format: 
+&lt;ORIGIN CITY&gt; &lt;DESTINATION CITY&gt; &lt;STATUS&gt;  &lt;DELIVERY DATE EXPECTED&gt;
+3. Define delivered routes where &apos;status&apos; is &apos;Delivered&apos; from &apos;RouteDataService2&apos;. Display it in format: 
+&lt;ORIGIN CITY&gt; &lt;DESTINATION CITY&gt;  &lt;DELIVERY DATE ACTUAL&gt;
+4. Define past routes where &apos;expectedDepartureTime&apos;  or &apos;actualDepartureTime&apos; dates from &apos;RouteDataService2&apos; action in the past and the status does not matter. Display it in format: 
+&lt;ORIGIN CITY&gt; &lt;DESTINATION CITY&gt; &lt;STATUS&gt; &lt;DELIVERY DATE [Actual or Expected]&gt;
+5. Define in progress routes where &apos;status&apos; is &apos;In-Progress&apos; from &apos;RouteDataService2&apos; action. 
+Display it in format: &lt;ORIGIN CITY&gt; &lt;DESTINATION CITY&gt; &lt;DELIVERY DATE [Actual or Expected]&gt;
+
+Display 3 latest routes from the list retrieved by &apos;RouteDataService2&apos; action .</description>
+        <developerName>instruction_definethen0</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_definethen0</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Driver asks for information about the list of routes</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is only to give user needed information in the right format described in instructions</scope>
+</GenAiPlugin>

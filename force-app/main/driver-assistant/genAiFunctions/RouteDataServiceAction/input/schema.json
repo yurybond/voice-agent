@@ -1,0 +1,27 @@
+{
+  "required" : [ "Contact" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "Account" : {
+      "title" : "Account",
+      "description" : "Salesforce Account record retrieved by Identify Record by Name action",
+      "lightning:type" : "lightning__recordInfoType",
+      "lightning:sObjectInfo" : {
+        "apiName" : "Account"
+      },
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "Contact" : {
+      "title" : "Contact",
+      "description" : "use 'Contact' context variable value",
+      "lightning:type" : "lightning__recordInfoType",
+      "lightning:sObjectInfo" : {
+        "apiName" : "Contact"
+      },
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

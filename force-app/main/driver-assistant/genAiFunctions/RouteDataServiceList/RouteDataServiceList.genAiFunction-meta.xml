@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Get all related Routes with Route Stops</description>
+    <invocationTarget>RouteDataService</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+    <masterLabel>RouteDataServiceList</masterLabel>
+    <progressIndicatorMessage>We&apos;re getting all related Routes with Route Stops</progressIndicatorMessage>
+</GenAiFunction>

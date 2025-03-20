@@ -1,0 +1,56 @@
+{
+  "required" : [ "Description", "Latitude", "Longitude", "Route_Id", "UserRequest", "routeEventType" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "Description" : {
+      "title" : "Description",
+      "description" : "Description of this route event from user request",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "Latitude" : {
+      "title" : "Latitude",
+      "description" : "Latitude of this Route Event",
+      "lightning:type" : "lightning__numberType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "Longitude" : {
+      "title" : "Longitude",
+      "description" : "Longitude of this Route Event",
+      "lightning:type" : "lightning__numberType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "Route_Id" : {
+      "title" : "Route_Id",
+      "description" : "The Route_Id is an Id for the Route__c record",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "Stop_Id" : {
+      "title" : "Stop_Id",
+      "description" : "The Stop Id is an Id for the Stop__c record",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "UserRequest" : {
+      "title" : "UserRequest",
+      "description" : "Initial user request",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "routeEventType" : {
+      "title" : "routeEventType",
+      "description" : "Route event type is one of the values : 'Arrival', 'Departure', 'Load', 'Unload', 'Delay', 'Incident', 'Other'. It is determined based on Description of this route event from user request",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}
