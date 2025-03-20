@@ -19,9 +19,8 @@ jobs:
           sf --version
       - name: Login To Org
         run: |
-          printf '%s' '${{ secrets.SFDX_AUTH_URL_FILE_DEV }}' > authFile.json
-          echo ${{ secrets.SFDX_AUTH_URL_FILE_DEV }}
-          sf org login sfdx-url --set-default --alias devorg --sfdx-url-file authFile.json 
+          printf '%s' '${{ secrets.SFDX_AUTH_URL_FILE_DEV }}' > ~/authFile.json
+          sf org login sfdx-url --set-default --sfdx-url-file ~/authFile.json 
       - name: Validation
         run: |
-          sf project deploy start -o devorg  --source-dir force-app/main/  --ignore-conflicts --dry-run --test-level RunLocalTests
+          sf project deploy start --source-dir force-app/main/  --ignore-conflicts --dry-run --test-level RunLocalTests
