@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+    <canEscalate>false</canEscalate>
+    <description>Use this topic when user requests detailed information about a single route, like a current route, previous route, future route. User request might look like this:
+&quot;Tell me about my current route&quot;
+&quot;What is my current route?&quot;
+&quot;What is my upcoming delivery?&quot;
+&quot;When is my next load?&quot;
+&quot;Give me more information about the route from New York to Chicago?&quot;
+&quot;Tell me more about my delivery on Friday.&quot;</description>
+    <developerName>Driver_asks_for_detailed_information_about_route</developerName>
+    <genAiFunctions>
+        <functionName>RouteDataServiceList</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>Define the needed route by using  data from &apos;RouteDataServiceList&apos; action, use &apos;Contact&apos; context variable value as &apos;Contact&apos; input parameter for  &apos;RouteDataServiceList&apos; action and respond with information about that route strictly in the following format:
+Your upcoming/next/last delivery is scheduled to start on ROUTE_START_NAME from FULL_ADRESS_OF_FIRST_STOP to CITY_OF_LAST_STOP with NUMBER_OF_INTERMEDIATE_STOPS intermediate stop in CITY_NAMES_OF_INTERMEDIATE_STOPS.
+where ROUTE_START_NAME is start time of founded route strictly in format like &quot;Monday, February 3rd at 12:00&quot; or use &quot;yesterday&quot;, &quot;today&quot; , &quot;tomorrow&quot;, &quot;next monday&quot; if possible.
+where FULL_ADRESS_OF_FIRST_STOP is a full address of first stop of founded route
+where CITY_OF_LAST_STOP is a city of address of the last point
+where NUMBER_OF_INTERMEDIATE_STOPS   is a number of intermediate stops. You should exclude the first and the last stop from the number of intermediate stops.
+CITY_NAMES_OF_INTERMEDIATE_STOPS is information about intermediate stops with city names only, you should use only city names for intermediate stops without street names
+An example of this response would be: &quot;Your next route is Monday, February 3rd at 12:00 from 11th Ave. 33, New York to Chicago with 1 stop in between in Boston.&quot;
+Your response should be brief and easy to pronounce.
+
+Take route start date and end date into consideration to identify completed, current and upcoming routes. Dates have higher priority than status.
+
+1. Define upcoming route where &apos;expectedArrivalStartTime&apos; or &apos;&apos; from &apos;RouteDataServiceList&apos; action equal or more than today and &apos;status&apos; is &apos;New&apos;. Display it in format: 
+&lt;ORIGIN CITY&gt; &lt;DESTINATION CITY&gt; &lt;STATUS&gt;  &lt;expectedArrivalStartTime&gt;
+2. Define current route where today date is between route start date and route end date.  Display it in format: 
+&lt;ORIGIN CITY&gt; &lt;DESTINATION CITY&gt; &lt;STATUS&gt;  &lt;DELIVERY DATE EXPECTED&gt;
+3. Define delivered route where &apos;status&apos; is &apos;Delivered&apos; from &apos;RouteDataServiceList&apos;. Display it in format: 
+&lt;ORIGIN CITY&gt; &lt;DESTINATION CITY&gt;  &lt;DELIVERY DATE ACTUAL&gt;
+4. Define past route where &apos;expectedDepartureTime&apos;  or &apos;actualDepartureTime&apos; dates from &apos;RouteDataServiceList&apos; action in the past and the status does not matter. Display it in format: 
+&lt;ORIGIN CITY&gt; &lt;DESTINATION CITY&gt; &lt;STATUS&gt; &lt;DELIVERY DATE [Actual or Expected]&gt;
+5. Define in progress route where &apos;status&apos; is &apos;In-Progress&apos; from &apos;RouteDataServiceList&apos; action. 
+Display it in format: &lt;ORIGIN CITY&gt; &lt;DESTINATION CITY&gt; &lt;DELIVERY DATE [Actual or Expected]&gt;</description>
+        <developerName>instruction_definethen0</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_definethen0</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Driver asks for detailed information about route</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is only to give user needed information in the right format described in instructions</scope>
+</GenAiPlugin>
