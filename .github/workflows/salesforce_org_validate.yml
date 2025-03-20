@@ -1,0 +1,25 @@
+name: Validate
+
+on: 
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - force-app/**
+
+jobs:
+  validate-metatada:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Install Salesforce CLI
+        run: |
+          npm install @salesforce/cli --global
+          sf --version
+      - name: Login To Org
+        run: |
+          sf org login sfdx-url --set-default --alias devorg --sfdx-url-file <(echo "${{ secrets.SFDX_AUTH_URL_FILE_DEV }}") 
+      - name: Validation
+        run: |
+          sf project deploy start --dry-run -o devorg 
