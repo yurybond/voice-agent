@@ -10,6 +10,7 @@ export default class VoiceAssistant extends LightningElement {
     recognition = null;
     synthesis = null;
     firstInteraction = true;
+    agentSessionId = null;
 
     @wire(MessageContext)
     messageContext;
@@ -112,12 +113,15 @@ export default class VoiceAssistant extends LightningElement {
             const response = await processVoiceInput({
                 userInput: transcript,
                 latitude: position.coords.latitude,
-                longitude: position.coords.longitude
+                longitude: position.coords.longitude,
+                agentSessionId: this.agentSessionId
             });
 
+            this.agentSessionId = response.agentSessionId;
             this.updateButtonState('REPLYING');
-            this.dispatchMessage('Assistant', response);
-            await this.textToSpeech(response);
+            this.dispatchMessage('Assistant', response.agentResponse);
+            await this.textToSpeech(response.agentResponse);
+            
             this.startListening(); // Automatically start listening after response
         } catch (error) {
             this.dispatchMessage('System', 'Error processing voice input:' + error, 'Error');
