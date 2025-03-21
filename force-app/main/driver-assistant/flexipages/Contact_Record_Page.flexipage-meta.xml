@@ -3,7 +3,7 @@
     <flexiPageRegions>
         <name>header</name>
         <type>Region</type>
-    </flexiPageRegions>
+    </flexiPageRegions>    
     <flexiPageRegions>
         <itemInstances>
             <fieldInstance>
@@ -100,7 +100,7 @@
         <name>Facet-f097e0d5-c2a3-4f68-99e8-aabce3e16e34</name>
         <type>Facet</type>
     </flexiPageRegions>
-    <flexiPageRegions>
+    <flexiPageRegions>        
         <itemInstances>
             <fieldInstance>
                 <fieldInstanceProperties>
