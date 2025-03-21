@@ -342,7 +342,7 @@
         <includeInPrompt>true</includeInPrompt>
         <label>MessagingSession Contact__c</label>
     </contextVariables>
-    <defaultOutboundFlow>Route_to_Queue</defaultOutboundFlow>
+    <defaultOutboundFlow></defaultOutboundFlow>
     <description>Deliver personalized driver interactions with an autonomous AI agent. Agentforce Service Agent intelligently supports drivers with their delivered, upcoming and in progress deliveries.</description>
     <label>Driver Support</label>
     <logPrivateConversationData>false</logPrivateConversationData>

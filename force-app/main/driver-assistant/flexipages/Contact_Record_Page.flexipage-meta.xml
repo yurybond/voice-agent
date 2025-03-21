@@ -6,16 +6,6 @@
     </flexiPageRegions>
     <flexiPageRegions>
         <itemInstances>
-            <componentInstance>
-                <componentName>contactProfileCard</componentName>
-                <identifier>c_contactProfileCard</identifier>
-            </componentInstance>
-        </itemInstances>
-        <name>sidebar</name>
-        <type>Region</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
@@ -111,16 +101,6 @@
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Next_Check_in_Date__c</fieldItem>
-                <identifier>RecordNext_Check_in_Date_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
         <itemInstances>
             <fieldInstance>
                 <fieldInstanceProperties>

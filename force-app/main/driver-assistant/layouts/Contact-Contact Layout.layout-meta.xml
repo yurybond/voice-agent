@@ -15,10 +15,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Next_Check_in_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Lifetime_Value__c</field>
             </layoutItems>
             <layoutItems>

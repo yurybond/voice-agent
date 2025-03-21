@@ -65,12 +65,6 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentName>routeMapSF</componentName>
-                <identifier>c_routeMapSF</identifier>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
                 <componentName>force:detailPanel</componentName>
                 <identifier>force_detailPanel</identifier>
             </componentInstance>

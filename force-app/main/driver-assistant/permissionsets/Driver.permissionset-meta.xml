@@ -4,10 +4,6 @@
         <apexClass>RouteDataService</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <classAccesses>
-        <apexClass>RouteEventController</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.AccountNumber</field>
@@ -346,11 +342,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Contact.MobilePhone</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Contact.Next_Check_in_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
