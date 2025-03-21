@@ -15,16 +15,6 @@
                 <identifier>RecordNameField</identifier>
             </fieldInstance>
         </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Membership_Number__c</fieldItem>
-                <identifier>RecordMembership_Number__cField</identifier>
-            </fieldInstance>
-        </itemInstances>
         <name>Facet-01cf81ef-e902-4dfc-bb01-169bf818a5b5</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -83,45 +73,11 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Preferred_Name__c</fieldItem>
-                <identifier>RecordPreferred_Name_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
                 <fieldItem>Record.LeadSource</fieldItem>
                 <identifier>RecordLeadSourceField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-f097e0d5-c2a3-4f68-99e8-aabce3e16e34</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Guest_Type__c</fieldItem>
-                <identifier>RecordGuest_Type_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.External_Id__c</fieldItem>
-                <identifier>RecordExternal_Id_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <name>Facet-c4de7262-bbb1-41d8-a3ab-671691d0ce58</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -155,16 +111,6 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Guest_Summary__c</fieldItem>
-                <identifier>RecordGuest_Summary_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
                 <fieldItem>Record.Description</fieldItem>
                 <identifier>RecordDescriptionField</identifier>
             </fieldInstance>
@@ -184,54 +130,6 @@
             </componentInstance>
         </itemInstances>
         <name>Facet-edfdbee3-58b6-4fb3-b405-6460d62e314e</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Interest1__c</fieldItem>
-                <identifier>RecordInterest1_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Interest2__c</fieldItem>
-                <identifier>RecordInterest2_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <name>Facet-23504416-dbd6-4ed7-a9dc-d71039c4a298</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Interest3__c</fieldItem>
-                <identifier>RecordInterest3_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Lifetime_Experience_Bookings__c</fieldItem>
-                <identifier>RecordLifetime_Experience_Bookings_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <name>Facet-5f11d6c7-a456-4caf-a887-d6a8012262cd</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -256,34 +154,6 @@
             </componentInstance>
         </itemInstances>
         <name>Facet-da6b9035-4f20-431e-abcd-8d6b838adaa1</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Lifetime_Value__c</fieldItem>
-                <identifier>RecordLifetime_Value_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <name>Facet-aa122401-5069-4151-82bf-ff573ac142af</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Lifetime_Reservations__c</fieldItem>
-                <identifier>RecordLifetime_Reservations_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <name>Facet-4d17cd05-a0e8-4e55-a40f-1479eeb18e72</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -764,9 +634,6 @@
                     <valueList>
                         <valueListItems>
                             <value>Edit</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>Contact.Personalized_Schedule</value>
                         </valueListItems>
                         <valueListItems>
                             <value>Global.NewCase</value>
