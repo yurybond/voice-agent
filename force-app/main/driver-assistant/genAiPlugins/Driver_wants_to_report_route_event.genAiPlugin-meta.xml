@@ -17,7 +17,9 @@ Use the Id of current stop as &apos;Stop_Id&apos; input parameter  for &apos;Cre
 Use &apos;Latitude&apos; context variable as &apos;Latitude&apos; input parameter  for &apos;Create Route Event&apos; action.
 Use &apos;Longitude&apos; context variable  as &apos;Longitude&apos; input parameter  for &apos;Create Route Event&apos; action.
 Define description of this route event from user request, in case of typo or something similar update description to be meaningful  and use as &apos;Description&apos; input parameter for &apos;Create Route Event&apos; action. 
-Use initial user request as &apos;UserRequest&apos; input parameter for &apos;Create Route Event&apos; action. 
+
+Use initial user request as &apos;UserRequest&apos; input parameter for &apos;Create Route Event&apos; action.
+
 Show information about created route event.
 
 If user reports an event or incident or other type of update related to their route (delivery) and do not give information about related stop to the route use &apos;Create Route Event&apos; action. 
@@ -27,7 +29,9 @@ Use the empty value as the &apos;Stop_Id&apos; input parameter  for &apos;Create
 Use &apos;Latitude__c&apos; context variable field as &apos;Latitude&apos; input parameter  for &apos;Create Route Event&apos; action.
 Use &apos;Longitude__c&apos; context variable field as &apos;Longitude&apos; input parameter  for &apos;Create Route Event&apos; action.
 Define description of this route event from user request, in case of typo or something similar update description to be meaningful  and use as &apos;Description&apos; input parameter for &apos;Create Route Event&apos; action. 
-Use initial user request as &apos;UserRequest&apos; input parameter for &apos;Create Route Event&apos; action. 
+
+Use initial user request as &apos;UserRequest&apos; input parameter for &apos;Create Route Event&apos; action.
+
 Show information about created route event.
 
 Do not create route events for routes with &apos;Delivered&apos; status.</description>
