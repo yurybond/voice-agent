@@ -17,7 +17,7 @@ public inherited sharing class VoiceAssistantAgentService {
             action.setInvocationParameter('userMessage', userMessage);
             action.setInvocationParameter('Latitude', location.getLatitude().toString());
             action.setInvocationParameter('Longitude', location.getLongitude().toString());
-            action.setInvocationParameter('Contact', contact);
+            action.setInvocationParameter('Contact', (String)contact);
 
             if (!String.isBlank(sessionId)) {
                 action.setInvocationParameter('SessionID', sessionId);
