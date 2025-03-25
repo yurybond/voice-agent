@@ -2,26 +2,19 @@ public without sharing class RouteDataService {
 
     @InvocableMethod
     public static List<Response> getDeliveryData(List<Request> requests) {
-        // Retrieve inputs
         Request input = requests[0];
-        Contact inputContact = input.Contact;
-
-//        String inputAccountId = (String) [SELECT Contact.AccountId FROM User WHERE Id = :UserInfo.getUserId() LIMIT 1]?.Contact.AccountId
-//                ?? '001aj00000g4CyXAAU';
-        //inputAccountId = inputAccountId ?? input.Account.Id;
-
-        // Create expected response
+        String inputContactId = input.Contact.Id;
         List<Response> responses = new List<Response>();
         Response output = new Response();
         List<Route__c> routes = [
                 SELECT Id, Name, Status__c, (
-                        SELECT Id, Expected_Arrival_Start_Time__c, Expected_Arrival_End_Time__c,
-                                Trip__c, Sequence_Number__c, Facility__r.Address__c, Facility__r.Phone__c, Facility__r.Timezone__c
+                        SELECT Id, Expected_Arrival_Start_Time__c, Expected_Arrival_End_Time__c, Actual_Arrival_Time__c, Actual_Departure_Time__c,
+                               Expected_Departure_Time__c, Trip__c, Sequence_Number__c, Facility__r.Address__c, Facility__r.Phone__c, Facility__r.Timezone__c
                         FROM Stops__r
-                        Order By Sequence_Number__c
+                        ORDER BY Sequence_Number__c
                 )
                 FROM Route__c
-                WHERE Account__c = :input.Account.Id
+                WHERE Id IN (SELECT Route__c FROM Route_Assignment__c WHERE	Contact__c =: inputContactId)
         ];
 
         List<Route> routsWrapper = new List<Route>();
@@ -33,6 +26,13 @@ public without sharing class RouteDataService {
             List<Stop> stopsWrapper = new List<Stop>();
             routeWrapper.stops = stopsWrapper;
             for (Stop__c stop : route.Stops__r) {
+                if (stop.Trip__c == 'Origin') {
+                    routeWrapper.expectedArrivalStartTime = stop.Expected_Arrival_Start_Time__c;
+                    routeWrapper.actualArrivalTime = stop.Actual_Arrival_Time__c;
+                } else if (stop.Trip__c == 'Destination') {
+                    routeWrapper.expectedDepartureTime = stop.Expected_Departure_Time__c;
+                    routeWrapper.actualDepartureTime = stop.Actual_Departure_Time__c;
+                }
                 Stop stopWrapper = new Stop();
                 stopWrapper.id = stop.Id;
                 stopWrapper.sequenceNumber = stop.Sequence_Number__c;
@@ -52,20 +52,14 @@ public without sharing class RouteDataService {
 
         return responses;
     }
-
-    // Class that represents the template inputs that are passed to the class
+    
     public class Request {
         @InvocableVariable
-                // Ensure that the input1 variable is same name with proper case as you configured in the Prompt Builder
         public Contact Contact;
         @InvocableVariable
         public Account Account;
-//        @InvocableVariable
-//        public String AccountId;
     }
-
-    // Class that represents the data that will be added to the template
-    // when it's resolved
+    
     public class Response {
         @InvocableVariable
         public String Prompt;
@@ -75,6 +69,11 @@ public without sharing class RouteDataService {
         public String id;
         public String name;
         public String status;
+        public DateTime expectedArrivalStartTime;
+        public DateTime expectedArrivalEndTime;
+        public DateTime expectedDepartureTime;
+        public DateTime actualArrivalTime;
+        public DateTime actualDepartureTime;
         public List<Stop> stops;
     }
 
