@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
         <name>Assign_Failed_Message</name>
         <label>Assign Failed Message</label>
@@ -64,7 +65,7 @@
         <inputAssignments>
             <field>Description__c</field>
             <value>
-                <elementReference>Description</elementReference>
+                <elementReference>FullDescription</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -77,12 +78,6 @@
             <field>Location__Longitude__s</field>
             <value>
                 <elementReference>Longitude</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Name</field>
-            <value>
-                <elementReference>Description</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -125,7 +120,6 @@
         <object>Route_Event__c</object>
         <outputReference>Route_Event</outputReference>
         <queriedFields>Id</queriedFields>
-        <queriedFields>Name</queriedFields>
         <queriedFields>Description__c</queriedFields>
         <queriedFields>Route__c</queriedFields>
         <queriedFields>Stop__c</queriedFields>
@@ -139,6 +133,11 @@
         </connector>
     </start>
     <status>Active</status>
+    <textTemplates>
+        <name>FullDescription</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>{!Description} (Initial request:{!UserRequest})</text>
+    </textTemplates>
     <variables>
         <description>Description of this route event from user request</description>
         <name>Description</name>
@@ -207,6 +206,14 @@
     <variables>
         <description>The Stop Id is an Id for the Stop__c record</description>
         <name>Stop_Id</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Initial user request</description>
+        <name>UserRequest</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>

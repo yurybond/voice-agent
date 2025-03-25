@@ -1,0 +1,26 @@
+<template>
+    <lightning-card title="Routes" icon-name="standard:route">
+        <div class="slds-m-around_medium">
+            <template if:true={routes.length}>
+                <lightning-datatable
+                    key-field="id"
+                    data={routes}
+                    columns={columns}
+                    hide-checkbox-column>
+                </lightning-datatable>
+            </template>
+            <template if:true={error}>
+                <div class="slds-text-color_error slds-p-around_small">
+                    Error loading routes: {error.message}
+                </div>
+            </template>
+            <template if:true={routes.length}>
+                <template if:false={routes}>
+                    <div class="slds-p-around_small">
+                        No routes found.
+                    </div>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+</template>

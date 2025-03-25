@@ -11,19 +11,19 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
-                <fullName>Route Start</fullName>
+                <fullName>Origin</fullName>
                 <default>false</default>
-                <label>Route Start</label>
+                <label>Origin</label>
             </value>
             <value>
-                <fullName>Intermediate Stop</fullName>
+                <fullName>Stop</fullName>
                 <default>false</default>
-                <label>Intermediate Stop</label>
+                <label>Stop</label>
             </value>
             <value>
-                <fullName>Route End</fullName>
+                <fullName>Destination</fullName>
                 <default>false</default>
-                <label>Route End</label>
+                <label>Destination</label>
             </value>
         </valueSetDefinition>
     </valueSet>

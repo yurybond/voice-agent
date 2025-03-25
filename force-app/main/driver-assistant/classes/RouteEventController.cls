@@ -6,7 +6,6 @@ public without sharing class RouteEventController {
     public static List<Response> reportRouteEvent(List<Request> requests) {
         String promptResponse = requests.get(0).promptResponse;
         String routeType = parsePromptResponse(promptResponse, 'Route type -\\s*(\\w+)');
-        system.debug(routeType);
         String sequenceNumber = parsePromptResponse(promptResponse, 'stop number (\\d+)');
         String routeName = parsePromptResponse(promptResponse, '\'([^\']*-[^\']*-*[^\']*)\'');
         String routeEvent = parsePromptResponse(promptResponse, '\'([^\']*)\'');
@@ -60,11 +59,9 @@ public without sharing class RouteEventController {
         if (routeType == 'Departure')  {
             stop.Actual_Departure_Time__c = DateTime.now();
             update stop;
-            system.debug(stop.Actual_Departure_Time__c);
             if (ACTIVE_ROUTE_STATUSES.contains(stop.Route__r.Status__c)) {
                 Route__c route = stop.Route__r;
                 route.Status__c = 'In-Progress';
-                system.debug(route.Status__c);
                 update route;
             }
         } else if (routeType == 'Arrival' || routeType == 'Unload') {
