@@ -14,10 +14,6 @@
 ## Data Model
 
 ```mermaid
-  info
-```
-
-```mermaid
 erDiagram
     Account ||--o{ Contact : "has"
     Contact ||--o{ Route_Assignment__c : "assigned via"
