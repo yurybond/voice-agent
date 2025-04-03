@@ -20,7 +20,8 @@
 ```mermaid
 erDiagram
     Account ||--o{ Contact : "has"
-    Contact ||--o{ Route : "has"
+    Contact ||--o{ Route_Assignment__c : "has"
+    Route ||--o{ Route_Assignment__c : "has"
     Route ||--o{ Stop : "has"
     Stop ||--o| Facility : "located_at"
 
@@ -38,10 +39,17 @@ erDiagram
         Lookup AccountId
     }
 
+    Route_Assignment__c {
+        Lookup Contact__c
+        Lookup Route__c
+        DateTime Start_Date__c
+        DateTime End_Date__c
+        Picklist Status__c
+    }
+
     Route {
         String Name
         String Status__c
-        Lookup Contact__c
     }
 
     Stop {
