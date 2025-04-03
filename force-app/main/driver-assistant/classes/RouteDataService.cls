@@ -9,7 +9,7 @@ public without sharing class RouteDataService {
         List<Route__c> routes = [
                 SELECT Id, Name, Status__c, (
                         SELECT Id, Expected_Arrival_Start_Time__c, Expected_Arrival_End_Time__c, Actual_Arrival_Time__c, Actual_Departure_Time__c,
-                               Expected_Departure_Time__c, Trip__c, Sequence_Number__c, Facility__r.Address__c, Facility__r.Phone__c, Facility__r.Timezone__c
+                               Expected_Departure_Time__c, Type__c, Sequence_Number__c, Facility__r.Address__c, Facility__r.Phone__c, Facility__r.Timezone__c
                         FROM Stops__r
                         ORDER BY Sequence_Number__c
                 )
@@ -26,10 +26,10 @@ public without sharing class RouteDataService {
             List<Stop> stopsWrapper = new List<Stop>();
             routeWrapper.stops = stopsWrapper;
             for (Stop__c stop : route.Stops__r) {
-                if (stop.Trip__c == 'Origin') {
+                if (stop.Type__c == 'Origin') {
                     routeWrapper.expectedArrivalStartTime = stop.Expected_Arrival_Start_Time__c;
                     routeWrapper.actualArrivalTime = stop.Actual_Arrival_Time__c;
-                } else if (stop.Trip__c == 'Destination') {
+                } else if (stop.Type__c == 'Destination') {
                     routeWrapper.expectedDepartureTime = stop.Expected_Departure_Time__c;
                     routeWrapper.actualDepartureTime = stop.Actual_Departure_Time__c;
                 }
@@ -38,7 +38,7 @@ public without sharing class RouteDataService {
                 stopWrapper.sequenceNumber = stop.Sequence_Number__c;
                 stopWrapper.expectedArrivalStartTime = stop.Expected_Arrival_Start_Time__c;
                 stopWrapper.expectedArrivalEndTime = stop.Expected_Arrival_End_Time__c;
-                stopWrapper.trip = stop.Trip__c;
+                stopWrapper.type = stop.Type__c;
                 stopWrapper.address = String.valueOf(stop.Facility__r.Address__c);
                 stopWrapper.timezone = stop.Facility__r.Timezone__c;
                 stopWrapper.phone = stop.Facility__r.Phone__c;
@@ -82,7 +82,7 @@ public without sharing class RouteDataService {
         public Decimal sequenceNumber;
         public DateTime expectedArrivalStartTime;
         public DateTime expectedArrivalEndTime;
-        public String trip;
+        public String type;
         public String address;
         public String timezone;
         public String phone;

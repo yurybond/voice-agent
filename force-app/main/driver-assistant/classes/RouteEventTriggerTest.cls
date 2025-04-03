@@ -21,7 +21,7 @@ private class RouteEventTriggerTest {
         stopOrigin.Route__c = route.Id;
         stopOrigin.Facility__c = facility.Id;
         stopOrigin.Sequence_Number__c = 1;
-        stopOrigin.Trip__c = 'Origin';
+        stopOrigin.Type__c = 'Origin';
         stops.add(stopOrigin);
         
         Stop__c stopDestination = new Stop__c();
@@ -29,7 +29,7 @@ private class RouteEventTriggerTest {
         stopDestination.Route__c = route.Id;
         stopDestination.Facility__c = facility.Id;
         stopDestination.Sequence_Number__c = 1;
-        stopDestination.Trip__c = 'Destination';
+        stopDestination.Type__c = 'Destination';
         stops.add(stopDestination);
         
         insert stops;        
@@ -37,7 +37,7 @@ private class RouteEventTriggerTest {
     
     @IsTest
     private static void insertRouteEventWithArrivalStatus() {
-        Stop__c originStop = [SELECT Id, Route__c FROM Stop__c WHERE Trip__c = 'Origin' LIMIT 1];
+        Stop__c originStop = [SELECT Id, Route__c FROM Stop__c WHERE Type__c = 'Origin' LIMIT 1];
         
         Route_Event__c routeEvent = new Route_Event__c(Route__c = originStop.Route__c, Stop__c = originStop.Id,
                                                        Type__c = 'Arrival');
@@ -53,7 +53,7 @@ private class RouteEventTriggerTest {
     
     @IsTest
     private static void insertRouteEventWithDepartureStatus() {
-        Stop__c originStop = [SELECT Id, Route__c FROM Stop__c WHERE Trip__c = 'Destination' LIMIT 1];
+        Stop__c originStop = [SELECT Id, Route__c FROM Stop__c WHERE Type__c = 'Destination' LIMIT 1];
         
         Route_Event__c routeEvent = new Route_Event__c(Route__c = originStop.Route__c, Stop__c = originStop.Id,
                                                        Type__c = 'Departure');

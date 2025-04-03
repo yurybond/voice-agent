@@ -4,7 +4,7 @@ public with sharing class RouteTableController {
         if (contactId == null) {
             return [
                 SELECT Id, Name, Status__c,
-                    (SELECT Name, Sequence_Number__c, Trip__c, 
+                    (SELECT Name, Sequence_Number__c, Type__c, 
                     Expected_Arrival_Start_Time__c, Expected_Arrival_End_Time__c, 
                     Expected_Departure_Time__c, Facility__r.Address__City__s,
                     Facility__r.Address__StateCode__s
@@ -16,7 +16,7 @@ public with sharing class RouteTableController {
 
         return [
             SELECT Id, Name, Status__c,
-                (SELECT Name, Sequence_Number__c, Trip__c, 
+                (SELECT Name, Sequence_Number__c, Type__c, 
                 Expected_Arrival_Start_Time__c, Expected_Arrival_End_Time__c, 
                 Expected_Departure_Time__c, Facility__r.Address__City__s,
                 Facility__r.Address__StateCode__s

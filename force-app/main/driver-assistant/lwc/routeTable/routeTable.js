@@ -61,8 +61,8 @@ export default class RouteTable extends NavigationMixin(LightningElement) {
         if (data) {
             this.routes = data.map(route => {
                 const stops = route.Stops__r || [];
-                const originStop = stops.find(stop => stop.Trip__c === 'Origin');
-                const destinationStop = stops.find(stop => stop.Trip__c === 'Destination');
+                const originStop = stops.find(stop => stop.Type__c === 'Origin');
+                const destinationStop = stops.find(stop => stop.Type__c === 'Destination');
 
                 return {
                     id: route.Id,

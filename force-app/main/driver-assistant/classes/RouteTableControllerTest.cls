@@ -26,7 +26,7 @@ private class RouteTableControllerTest {
             Route__c = route.Id,
             Facility__c = facility.Id,
             Sequence_Number__c = 1,
-            Trip__c = 'Origin',
+            Type__c = 'Origin',
             Expected_Arrival_Start_Time__c = now,
             Expected_Arrival_End_Time__c = now.addHours(2),
             Expected_Departure_Time__c = now.addHours(3)
@@ -37,7 +37,7 @@ private class RouteTableControllerTest {
             Route__c = route.Id,
             Facility__c = facility.Id,
             Sequence_Number__c = 2,
-            Trip__c = 'Destination',
+            Type__c = 'Destination',
             Expected_Arrival_Start_Time__c = now.addDays(1),
             Expected_Arrival_End_Time__c = now.addDays(1).addHours(2),
             Expected_Departure_Time__c = now.addDays(1).addHours(3)
@@ -58,7 +58,7 @@ private class RouteTableControllerTest {
         
         // Verify stop details
         Stop__c originStop = routes[0].Stops__r[0];
-        System.assertEquals('Origin', originStop.Trip__c, 'First stop should be Origin');
+        System.assertEquals('Origin', originStop.Type__c, 'First stop should be Origin');
         System.assertEquals(1, originStop.Sequence_Number__c, 'First stop should have sequence 1');
         System.assertEquals('New York', originStop.Facility__r.Address__City__s, 'City should match');
         System.assertEquals('NY', originStop.Facility__r.Address__StateCode__s, 'State should match');

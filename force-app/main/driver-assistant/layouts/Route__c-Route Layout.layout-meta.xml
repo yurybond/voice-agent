@@ -65,7 +65,7 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>Sequence_Number__c</fields>
-        <fields>Trip__c</fields>
+        <fields>Type__c</fields>
         <fields>Expected_Arrival_End_Time__c</fields>
         <fields>Expected_Departure_Time__c</fields>
         <fields>Actual_Arrival_Time__c</fields>
