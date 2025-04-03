@@ -20,10 +20,11 @@
 ```mermaid
 erDiagram
     Account ||--o{ Contact : "has"
-    Contact ||--o{ Route_Assignment__c : "has"
-    Route ||--o{ Route_Assignment__c : "has"
+    Contact ||--o{ Route_Assignment__c : "assigned via"
+    Route ||--o{ Route_Assignment__c : "assigned via"
     Route ||--o{ Stop : "has"
-    Stop ||--o| Facility : "located_at"
+    Stop }o--|| Facility : "located at"
+    
 
     Account {
         String Name
