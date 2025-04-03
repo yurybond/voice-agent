@@ -55,7 +55,7 @@ erDiagram
         DateTime Expected_Arrival_Start_Time__c
         DateTime Expected_Arrival_End_Time__c
         DateTime Expected_Departure_Time__c
-        Picklist Trip__c
+        Picklist Type__c
         Lookup Route__c
         Lookup Facility__c
     }

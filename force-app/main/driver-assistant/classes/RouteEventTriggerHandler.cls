@@ -12,7 +12,7 @@ public without sharing class RouteEventTriggerHandler {
         }
         
         Map<Id, Stop__c> routesWithStops = new Map<Id, Stop__c>();
-        List<Stop__c> stops = [SELECT Id, Route__c, Trip__c FROM Stop__c WHERE Id IN :stopIds];
+        List<Stop__c> stops = [SELECT Id, Route__c, Type__c FROM Stop__c WHERE Id IN :stopIds];
         for (Stop__c stop : stops) {
             routesWithStops.put(stop.Route__c, stop);            
         }
@@ -26,7 +26,7 @@ public without sharing class RouteEventTriggerHandler {
                     stop.Actual_Arrival_Time__c = DateTime.now();
                     stopsToUpdate.add(stop);
 
-                    if (routesWithStops.get(route.Id).Trip__c == 'Origin' && 
+                    if (routesWithStops.get(route.Id).Type__c == 'Origin' && 
                         ACTIVE_ROUTE_STATUSES.contains(route.Status__c)) {
                         route.Status__c = 'In-Progress';
                         routesToUpdate.add(route);
@@ -41,7 +41,7 @@ public without sharing class RouteEventTriggerHandler {
                     stop.Actual_Departure_Time__c = DateTime.now();
                     stopsToUpdate.add(stop);
 
-                    if (routesWithStops.get(route.Id).Trip__c == 'Destination') {
+                    if (routesWithStops.get(route.Id).Type__c == 'Destination') {
                         route.Status__c = 'Delivered';
                         routesToUpdate.add(route);
                     }
