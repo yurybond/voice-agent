@@ -9,149 +9,92 @@
     <contextVariables>
         <contextVariableMappings>
             <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.MessagingEndUserId</fieldName>
-            <messageType>Text</messageType>
+            <fieldName>MessagingSession.Account__c</fieldName>
+            <messageType>EmbeddedMessaging</messageType>
         </contextVariableMappings>
         <contextVariableMappings>
             <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.MessagingEndUserId</fieldName>
-            <messageType>Facebook</messageType>
-        </contextVariableMappings>
-        <contextVariableMappings>
-            <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.MessagingEndUserId</fieldName>
-            <messageType>WhatsApp</messageType>
-        </contextVariableMappings>
-        <contextVariableMappings>
-            <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.MessagingEndUserId</fieldName>
+            <fieldName>MessagingSession.Account__c</fieldName>
             <messageType>Custom</messageType>
         </contextVariableMappings>
         <contextVariableMappings>
             <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.MessagingEndUserId</fieldName>
+            <fieldName>MessagingSession.Account__c</fieldName>
+            <messageType>Text</messageType>
+        </contextVariableMappings>
+        <contextVariableMappings>
+            <SObjectType>MessagingSession</SObjectType>
+            <fieldName>MessagingSession.Account__c</fieldName>
+            <messageType>Facebook</messageType>
+        </contextVariableMappings>
+        <contextVariableMappings>
+            <SObjectType>MessagingSession</SObjectType>
+            <fieldName>MessagingSession.Account__c</fieldName>
+            <messageType>WhatsApp</messageType>
+        </contextVariableMappings>
+        <contextVariableMappings>
+            <SObjectType>MessagingSession</SObjectType>
+            <fieldName>MessagingSession.Account__c</fieldName>
             <messageType>AppleBusinessChat</messageType>
         </contextVariableMappings>
         <contextVariableMappings>
             <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.MessagingEndUserId</fieldName>
+            <fieldName>MessagingSession.Account__c</fieldName>
+            <messageType>Line</messageType>
+        </contextVariableMappings>
+        <dataType>Id</dataType>
+        <description>This variable may also be referred to as MessagingSession Account</description>
+        <developerName>Account</developerName>
+        <includeInPrompt>true</includeInPrompt>
+        <label>MessagingSession Account__c</label>
+    </contextVariables>
+    <contextVariables>
+        <contextVariableMappings>
+            <SObjectType>MessagingSession</SObjectType>
+            <fieldName>MessagingSession.Contact__c</fieldName>
+            <messageType>WhatsApp</messageType>
+        </contextVariableMappings>
+        <contextVariableMappings>
+            <SObjectType>MessagingSession</SObjectType>
+            <fieldName>MessagingSession.Contact__c</fieldName>
+            <messageType>Custom</messageType>
+        </contextVariableMappings>
+        <contextVariableMappings>
+            <SObjectType>MessagingSession</SObjectType>
+            <fieldName>MessagingSession.Contact__c</fieldName>
+            <messageType>Text</messageType>
+        </contextVariableMappings>
+        <contextVariableMappings>
+            <SObjectType>MessagingSession</SObjectType>
+            <fieldName>MessagingSession.Contact__c</fieldName>
+            <messageType>AppleBusinessChat</messageType>
+        </contextVariableMappings>
+        <contextVariableMappings>
+            <SObjectType>MessagingSession</SObjectType>
+            <fieldName>MessagingSession.Contact__c</fieldName>
             <messageType>Line</messageType>
         </contextVariableMappings>
         <contextVariableMappings>
             <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.MessagingEndUserId</fieldName>
+            <fieldName>MessagingSession.Contact__c</fieldName>
+            <messageType>Facebook</messageType>
+        </contextVariableMappings>
+        <contextVariableMappings>
+            <SObjectType>MessagingSession</SObjectType>
+            <fieldName>MessagingSession.Contact__c</fieldName>
             <messageType>EmbeddedMessaging</messageType>
         </contextVariableMappings>
         <dataType>Id</dataType>
-        <description>This variable may also be referred to as MessagingEndUser Id</description>
-        <developerName>EndUserId</developerName>
+        <description>This variable may also be referred to as MessagingSession Contact</description>
+        <developerName>Contact</developerName>
         <includeInPrompt>true</includeInPrompt>
-        <label>End User Id</label>
+        <label>MessagingSession Contact__c</label>
     </contextVariables>
     <contextVariables>
         <contextVariableMappings>
-            <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.Id</fieldName>
-            <messageType>EmbeddedMessaging</messageType>
-        </contextVariableMappings>
-        <contextVariableMappings>
-            <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.Id</fieldName>
-            <messageType>Facebook</messageType>
-        </contextVariableMappings>
-        <contextVariableMappings>
-            <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.Id</fieldName>
-            <messageType>WhatsApp</messageType>
-        </contextVariableMappings>
-        <contextVariableMappings>
-            <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.Id</fieldName>
-            <messageType>Custom</messageType>
-        </contextVariableMappings>
-        <contextVariableMappings>
-            <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.Id</fieldName>
-            <messageType>AppleBusinessChat</messageType>
-        </contextVariableMappings>
-        <contextVariableMappings>
-            <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.Id</fieldName>
-            <messageType>Line</messageType>
-        </contextVariableMappings>
-        <contextVariableMappings>
-            <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.Id</fieldName>
+            <SObjectType>MessagingEndUser</SObjectType>
+            <fieldName>MessagingEndUser.ContactId</fieldName>
             <messageType>Text</messageType>
-        </contextVariableMappings>
-        <dataType>Id</dataType>
-        <description>This variable may also be referred to as MessagingSession Id</description>
-        <developerName>RoutableId</developerName>
-        <includeInPrompt>true</includeInPrompt>
-        <label>Routable Id</label>
-    </contextVariables>
-    <contextVariables>
-        <contextVariableMappings>
-            <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.EndUserLanguage</fieldName>
-            <messageType>EmbeddedMessaging</messageType>
-        </contextVariableMappings>
-        <contextVariableMappings>
-            <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.EndUserLanguage</fieldName>
-            <messageType>Custom</messageType>
-        </contextVariableMappings>
-        <contextVariableMappings>
-            <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.EndUserLanguage</fieldName>
-            <messageType>AppleBusinessChat</messageType>
-        </contextVariableMappings>
-        <contextVariableMappings>
-            <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.EndUserLanguage</fieldName>
-            <messageType>Facebook</messageType>
-        </contextVariableMappings>
-        <contextVariableMappings>
-            <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.EndUserLanguage</fieldName>
-            <messageType>Text</messageType>
-        </contextVariableMappings>
-        <contextVariableMappings>
-            <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.EndUserLanguage</fieldName>
-            <messageType>Line</messageType>
-        </contextVariableMappings>
-        <contextVariableMappings>
-            <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.EndUserLanguage</fieldName>
-            <messageType>WhatsApp</messageType>
-        </contextVariableMappings>
-        <dataType>Text</dataType>
-        <description>This variable may also be referred to as MessagingSession EndUserLanguage</description>
-        <developerName>EndUserLanguage</developerName>
-        <includeInPrompt>false</includeInPrompt>
-        <label>End User Language</label>
-    </contextVariables>
-    <contextVariables>
-        <contextVariableMappings>
-            <SObjectType>MessagingEndUser</SObjectType>
-            <fieldName>MessagingEndUser.ContactId</fieldName>
-            <messageType>Line</messageType>
-        </contextVariableMappings>
-        <contextVariableMappings>
-            <SObjectType>MessagingEndUser</SObjectType>
-            <fieldName>MessagingEndUser.ContactId</fieldName>
-            <messageType>Custom</messageType>
-        </contextVariableMappings>
-        <contextVariableMappings>
-            <SObjectType>MessagingEndUser</SObjectType>
-            <fieldName>MessagingEndUser.ContactId</fieldName>
-            <messageType>AppleBusinessChat</messageType>
-        </contextVariableMappings>
-        <contextVariableMappings>
-            <SObjectType>MessagingEndUser</SObjectType>
-            <fieldName>MessagingEndUser.ContactId</fieldName>
-            <messageType>WhatsApp</messageType>
         </contextVariableMappings>
         <contextVariableMappings>
             <SObjectType>MessagingEndUser</SObjectType>
@@ -161,7 +104,22 @@
         <contextVariableMappings>
             <SObjectType>MessagingEndUser</SObjectType>
             <fieldName>MessagingEndUser.ContactId</fieldName>
-            <messageType>Text</messageType>
+            <messageType>WhatsApp</messageType>
+        </contextVariableMappings>
+        <contextVariableMappings>
+            <SObjectType>MessagingEndUser</SObjectType>
+            <fieldName>MessagingEndUser.ContactId</fieldName>
+            <messageType>AppleBusinessChat</messageType>
+        </contextVariableMappings>
+        <contextVariableMappings>
+            <SObjectType>MessagingEndUser</SObjectType>
+            <fieldName>MessagingEndUser.ContactId</fieldName>
+            <messageType>Custom</messageType>
+        </contextVariableMappings>
+        <contextVariableMappings>
+            <SObjectType>MessagingEndUser</SObjectType>
+            <fieldName>MessagingEndUser.ContactId</fieldName>
+            <messageType>Line</messageType>
         </contextVariableMappings>
         <contextVariableMappings>
             <SObjectType>MessagingEndUser</SObjectType>
@@ -177,44 +135,86 @@
     <contextVariables>
         <contextVariableMappings>
             <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.Longitude__c</fieldName>
-            <messageType>Facebook</messageType>
-        </contextVariableMappings>
-        <contextVariableMappings>
-            <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.Longitude__c</fieldName>
-            <messageType>Custom</messageType>
-        </contextVariableMappings>
-        <contextVariableMappings>
-            <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.Longitude__c</fieldName>
-            <messageType>EmbeddedMessaging</messageType>
-        </contextVariableMappings>
-        <contextVariableMappings>
-            <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.Longitude__c</fieldName>
+            <fieldName>MessagingSession.MessagingEndUserId</fieldName>
             <messageType>Line</messageType>
         </contextVariableMappings>
         <contextVariableMappings>
             <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.Longitude__c</fieldName>
+            <fieldName>MessagingSession.MessagingEndUserId</fieldName>
             <messageType>AppleBusinessChat</messageType>
         </contextVariableMappings>
         <contextVariableMappings>
             <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.Longitude__c</fieldName>
+            <fieldName>MessagingSession.MessagingEndUserId</fieldName>
+            <messageType>Custom</messageType>
+        </contextVariableMappings>
+        <contextVariableMappings>
+            <SObjectType>MessagingSession</SObjectType>
+            <fieldName>MessagingSession.MessagingEndUserId</fieldName>
             <messageType>WhatsApp</messageType>
         </contextVariableMappings>
         <contextVariableMappings>
             <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.Longitude__c</fieldName>
+            <fieldName>MessagingSession.MessagingEndUserId</fieldName>
+            <messageType>Facebook</messageType>
+        </contextVariableMappings>
+        <contextVariableMappings>
+            <SObjectType>MessagingSession</SObjectType>
+            <fieldName>MessagingSession.MessagingEndUserId</fieldName>
             <messageType>Text</messageType>
         </contextVariableMappings>
-        <dataType>Text</dataType>
-        <description>This variable may also be referred to as MessagingSession Longitude</description>
-        <developerName>Longitude</developerName>
+        <contextVariableMappings>
+            <SObjectType>MessagingSession</SObjectType>
+            <fieldName>MessagingSession.MessagingEndUserId</fieldName>
+            <messageType>EmbeddedMessaging</messageType>
+        </contextVariableMappings>
+        <dataType>Id</dataType>
+        <description>This variable may also be referred to as MessagingEndUser Id</description>
+        <developerName>EndUserId</developerName>
         <includeInPrompt>true</includeInPrompt>
-        <label>MessagingSession Longitude__c</label>
+        <label>End User Id</label>
+    </contextVariables>
+    <contextVariables>
+        <contextVariableMappings>
+            <SObjectType>MessagingSession</SObjectType>
+            <fieldName>MessagingSession.EndUserLanguage</fieldName>
+            <messageType>EmbeddedMessaging</messageType>
+        </contextVariableMappings>
+        <contextVariableMappings>
+            <SObjectType>MessagingSession</SObjectType>
+            <fieldName>MessagingSession.EndUserLanguage</fieldName>
+            <messageType>Custom</messageType>
+        </contextVariableMappings>
+        <contextVariableMappings>
+            <SObjectType>MessagingSession</SObjectType>
+            <fieldName>MessagingSession.EndUserLanguage</fieldName>
+            <messageType>WhatsApp</messageType>
+        </contextVariableMappings>
+        <contextVariableMappings>
+            <SObjectType>MessagingSession</SObjectType>
+            <fieldName>MessagingSession.EndUserLanguage</fieldName>
+            <messageType>AppleBusinessChat</messageType>
+        </contextVariableMappings>
+        <contextVariableMappings>
+            <SObjectType>MessagingSession</SObjectType>
+            <fieldName>MessagingSession.EndUserLanguage</fieldName>
+            <messageType>Facebook</messageType>
+        </contextVariableMappings>
+        <contextVariableMappings>
+            <SObjectType>MessagingSession</SObjectType>
+            <fieldName>MessagingSession.EndUserLanguage</fieldName>
+            <messageType>Text</messageType>
+        </contextVariableMappings>
+        <contextVariableMappings>
+            <SObjectType>MessagingSession</SObjectType>
+            <fieldName>MessagingSession.EndUserLanguage</fieldName>
+            <messageType>Line</messageType>
+        </contextVariableMappings>
+        <dataType>Text</dataType>
+        <description>This variable may also be referred to as MessagingSession EndUserLanguage</description>
+        <developerName>EndUserLanguage</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>End User Language</label>
     </contextVariables>
     <contextVariables>
         <contextVariableMappings>
@@ -261,86 +261,86 @@
     <contextVariables>
         <contextVariableMappings>
             <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.Account__c</fieldName>
-            <messageType>Custom</messageType>
-        </contextVariableMappings>
-        <contextVariableMappings>
-            <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.Account__c</fieldName>
-            <messageType>Text</messageType>
-        </contextVariableMappings>
-        <contextVariableMappings>
-            <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.Account__c</fieldName>
+            <fieldName>MessagingSession.Longitude__c</fieldName>
             <messageType>Facebook</messageType>
         </contextVariableMappings>
         <contextVariableMappings>
             <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.Account__c</fieldName>
-            <messageType>WhatsApp</messageType>
+            <fieldName>MessagingSession.Longitude__c</fieldName>
+            <messageType>Custom</messageType>
         </contextVariableMappings>
         <contextVariableMappings>
             <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.Account__c</fieldName>
-            <messageType>AppleBusinessChat</messageType>
+            <fieldName>MessagingSession.Longitude__c</fieldName>
+            <messageType>EmbeddedMessaging</messageType>
         </contextVariableMappings>
         <contextVariableMappings>
             <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.Account__c</fieldName>
+            <fieldName>MessagingSession.Longitude__c</fieldName>
             <messageType>Line</messageType>
         </contextVariableMappings>
         <contextVariableMappings>
             <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.Account__c</fieldName>
-            <messageType>EmbeddedMessaging</messageType>
+            <fieldName>MessagingSession.Longitude__c</fieldName>
+            <messageType>AppleBusinessChat</messageType>
         </contextVariableMappings>
-        <dataType>Id</dataType>
-        <description>This variable may also be referred to as MessagingSession Account</description>
-        <developerName>Account</developerName>
+        <contextVariableMappings>
+            <SObjectType>MessagingSession</SObjectType>
+            <fieldName>MessagingSession.Longitude__c</fieldName>
+            <messageType>WhatsApp</messageType>
+        </contextVariableMappings>
+        <contextVariableMappings>
+            <SObjectType>MessagingSession</SObjectType>
+            <fieldName>MessagingSession.Longitude__c</fieldName>
+            <messageType>Text</messageType>
+        </contextVariableMappings>
+        <dataType>Text</dataType>
+        <description>This variable may also be referred to as MessagingSession Longitude</description>
+        <developerName>Longitude</developerName>
         <includeInPrompt>true</includeInPrompt>
-        <label>MessagingSession Account__c</label>
+        <label>MessagingSession Longitude__c</label>
     </contextVariables>
     <contextVariables>
         <contextVariableMappings>
             <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.Contact__c</fieldName>
-            <messageType>Custom</messageType>
-        </contextVariableMappings>
-        <contextVariableMappings>
-            <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.Contact__c</fieldName>
-            <messageType>Text</messageType>
-        </contextVariableMappings>
-        <contextVariableMappings>
-            <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.Contact__c</fieldName>
-            <messageType>AppleBusinessChat</messageType>
-        </contextVariableMappings>
-        <contextVariableMappings>
-            <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.Contact__c</fieldName>
-            <messageType>Line</messageType>
-        </contextVariableMappings>
-        <contextVariableMappings>
-            <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.Contact__c</fieldName>
-            <messageType>Facebook</messageType>
-        </contextVariableMappings>
-        <contextVariableMappings>
-            <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.Contact__c</fieldName>
+            <fieldName>MessagingSession.Id</fieldName>
             <messageType>EmbeddedMessaging</messageType>
         </contextVariableMappings>
         <contextVariableMappings>
             <SObjectType>MessagingSession</SObjectType>
-            <fieldName>MessagingSession.Contact__c</fieldName>
+            <fieldName>MessagingSession.Id</fieldName>
+            <messageType>Facebook</messageType>
+        </contextVariableMappings>
+        <contextVariableMappings>
+            <SObjectType>MessagingSession</SObjectType>
+            <fieldName>MessagingSession.Id</fieldName>
+            <messageType>Custom</messageType>
+        </contextVariableMappings>
+        <contextVariableMappings>
+            <SObjectType>MessagingSession</SObjectType>
+            <fieldName>MessagingSession.Id</fieldName>
+            <messageType>AppleBusinessChat</messageType>
+        </contextVariableMappings>
+        <contextVariableMappings>
+            <SObjectType>MessagingSession</SObjectType>
+            <fieldName>MessagingSession.Id</fieldName>
+            <messageType>Line</messageType>
+        </contextVariableMappings>
+        <contextVariableMappings>
+            <SObjectType>MessagingSession</SObjectType>
+            <fieldName>MessagingSession.Id</fieldName>
+            <messageType>Text</messageType>
+        </contextVariableMappings>
+        <contextVariableMappings>
+            <SObjectType>MessagingSession</SObjectType>
+            <fieldName>MessagingSession.Id</fieldName>
             <messageType>WhatsApp</messageType>
         </contextVariableMappings>
         <dataType>Id</dataType>
-        <description>This variable may also be referred to as MessagingSession Contact</description>
-        <developerName>Contact</developerName>
+        <description>This variable may also be referred to as MessagingSession Id</description>
+        <developerName>RoutableId</developerName>
         <includeInPrompt>true</includeInPrompt>
-        <label>MessagingSession Contact__c</label>
+        <label>Routable Id</label>
     </contextVariables>
     <defaultOutboundFlow>Route_to_Queue</defaultOutboundFlow>
     <description>Deliver personalized driver interactions with an autonomous AI agent. Agentforce Service Agent intelligently supports drivers with their delivered, upcoming and in progress deliveries.</description>

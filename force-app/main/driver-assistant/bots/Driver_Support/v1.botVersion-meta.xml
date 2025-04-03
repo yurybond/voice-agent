@@ -64,6 +64,7 @@
     <conversationDefinitionPlanners>
         <genAiPlannerName>Driver_Support</genAiPlannerName>
     </conversationDefinitionPlanners>
+    <copilotPrimaryLanguage>en_US</copilotPrimaryLanguage>
     <entryDialog>Welcome</entryDialog>
     <intentDisambiguationEnabled>false</intentDisambiguationEnabled>
     <intentV3Enabled>false</intentV3Enabled>
@@ -71,5 +72,6 @@
     <knowledgeFallbackEnabled>false</knowledgeFallbackEnabled>
     <role>An AI customer service agent whose job is to help drivers with support questions, providing information about assigned loads and report events on a route.</role>
     <smallTalkEnabled>false</smallTalkEnabled>
-    <toneType>Casual</toneType>
+    <surfacesEnabled>false</surfacesEnabled>
+    <toneType>Neutral</toneType>
 </BotVersion>
