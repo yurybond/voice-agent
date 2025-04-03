@@ -161,10 +161,9 @@
     <externalSharingModel>Private</externalSharingModel>
     <label>Route</label>
     <nameField>
-        <displayFormat>R-{YYYY}{MM}{DD}-{0}</displayFormat>
         <label>Name</label>
         <trackHistory>false</trackHistory>
-        <type>AutoNumber</type>
+        <type>Text</type>
     </nameField>
     <pluralLabel>Routes</pluralLabel>
     <searchLayouts></searchLayouts>

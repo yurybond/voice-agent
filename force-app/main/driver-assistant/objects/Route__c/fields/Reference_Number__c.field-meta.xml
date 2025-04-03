@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Reference_Number__c</fullName>
+    <description>Auto Generated Refererence Number of the route</description>
+    <displayFormat>{YYYYDDMM}-{00000000}</displayFormat>
     <externalId>true</externalId>
+    <inlineHelpText>Auto Generated Refererence Number of the route</inlineHelpText>
     <label>Reference Number</label>
-    <length>255</length>
-    <required>false</required>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
-    <type>Text</type>
-    <unique>false</unique>
+    <type>AutoNumber</type>
 </CustomField>

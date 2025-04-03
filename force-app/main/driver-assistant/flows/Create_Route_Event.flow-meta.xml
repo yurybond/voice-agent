@@ -81,6 +81,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>Description</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>Route__c</field>
             <value>
                 <elementReference>Route_Id</elementReference>

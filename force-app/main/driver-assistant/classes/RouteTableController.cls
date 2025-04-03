@@ -3,7 +3,7 @@ public with sharing class RouteTableController {
     public static List<Route__c> getRoutes(Id contactId) {
         if (contactId == null) {
             return [
-                SELECT Id, Name, 
+                SELECT Id, Name, Status__c,
                     (SELECT Name, Sequence_Number__c, Trip__c, 
                     Expected_Arrival_Start_Time__c, Expected_Arrival_End_Time__c, 
                     Expected_Departure_Time__c, Facility__r.Address__City__s,
@@ -15,7 +15,7 @@ public with sharing class RouteTableController {
         }
 
         return [
-            SELECT Id, Name, 
+            SELECT Id, Name, Status__c,
                 (SELECT Name, Sequence_Number__c, Trip__c, 
                 Expected_Arrival_Start_Time__c, Expected_Arrival_End_Time__c, 
                 Expected_Departure_Time__c, Facility__r.Address__City__s,

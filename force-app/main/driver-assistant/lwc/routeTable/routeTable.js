@@ -15,6 +15,10 @@ export default class RouteTable extends NavigationMixin(LightningElement) {
             typeAttributes: { label: { fieldName: 'name' } }
         },
         {
+            label: 'Status',
+            fieldName: 'status'
+        },
+        {
             label: 'Origin',
             fieldName: 'originUrl',
             type: 'url',
@@ -63,6 +67,7 @@ export default class RouteTable extends NavigationMixin(LightningElement) {
                 return {
                     id: route.Id,
                     name: route.Name,
+                    status: route.Status__c,
                     url: this.generateUrl('/lightning/r/Route__c/' + route.Id + '/view'),
                     originLocation: originStop ? 
                         `${originStop.Facility__r.Address__City__s}, ${originStop.Facility__r.Address__StateCode__s}` : 
