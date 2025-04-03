@@ -17,7 +17,7 @@
   info
 ```
 
-``````mermaid
+```mermaid
 erDiagram
     Account ||--o{ Contact : "has"
     Contact ||--o{ Route : "has"
