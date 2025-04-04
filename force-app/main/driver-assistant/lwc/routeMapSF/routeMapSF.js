@@ -51,9 +51,9 @@ export default class ContactMapRoute extends LightningElement {
                 })
             );
     }
-
     createMapMarkers(routePoints) {
         return routePoints.map(point => {
+
             return {
                 location: {
                     City: point.Facility__r.Address__c?.city || '',
@@ -63,7 +63,7 @@ export default class ContactMapRoute extends LightningElement {
                     Street: point.Facility__r.Address__c?.street || '',
                 },
                 title: point.Name, // Marker title
-                description: `Point# ${point.Sequence_Number__c}`,
+                description: `Point# ${point.Sequence_Number__c}`
 
             }
         });

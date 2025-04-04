@@ -29,7 +29,7 @@ public without sharing class RouteMapController {
         if (!String.isBlank(routeId)) {
 
             List<Stop__c> routePoints = [
-                    SELECT Name, Sequence_Number__c, Facility__r.Address__c
+                    SELECT Name, Sequence_Number__c, Type__c, Facility__r.Address__c
                     FROM Stop__c
                     WHERE Route__c = :routeId
                     ORDER BY Sequence_Number__c
