@@ -6,5 +6,18 @@
     <description>Component to receive voice commands and convert Agentfoce response to speech.</description>
     <targets>
         <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
     </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property 
+                name="agentName" 
+                type="String" 
+                label="Agent Name" 
+                description="API Name of the Salesforce Agentforce to be used / (currently not in use)"
+                required="true"
+                default="DefaultAgent"
+            />
+        </targetConfig>
+    </targetConfigs>
 </LightningComponentBundle>

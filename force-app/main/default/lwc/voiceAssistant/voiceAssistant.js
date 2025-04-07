@@ -1,10 +1,11 @@
-import { LightningElement, track } from 'lwc';
+import { LightningElement, track, api } from 'lwc';
 import { publish, MessageContext } from 'lightning/messageService';
 import { wire } from 'lwc';
 import VOICE_MESSAGE_CHANNEL from '@salesforce/messageChannel/VoiceMessageChannel__c';
 import processVoiceInput from '@salesforce/apex/VoiceAssistantController.processVoiceInput';
 
 export default class VoiceAssistant extends LightningElement {
+    @api agentName = ''; //reserverd for future use
     @track messages = [];
     @track buttonState = 'PUSH_TO_START';
     recognition = null;
@@ -14,10 +15,6 @@ export default class VoiceAssistant extends LightningElement {
 
     @wire(MessageContext)
     messageContext;
-
-    connectedCallback() {
-        this.initializeSpeechCapabilities();
-    }
 
     initializeSpeechCapabilities() {
         try {
@@ -57,16 +54,23 @@ export default class VoiceAssistant extends LightningElement {
     }
 
     handleButtonClick() {
+        this.dispatchMessage('System', 'Synthesis.' + this.synthesis, 'Error');
         try {
+            if (!this.synthesis || !this.recognition) {
+                this.initializeSpeechCapabilities();
+                this.dispatchMessage('System', 'Mic initialisation.', 'Error');
+            }
             navigator.mediaDevices.getUserMedia({ audio: true })
                 .then(stream => {
                     stream.getTracks().forEach(track => track.stop());
                     this.processButtonClick();
                 })
                 .catch(error => {
+                    this.dispatchMessage('System', 'Microphone access denied. Please check your settings.' + error, 'Error');
                     console.error('Microphone access denied:', error);
                 });
         } catch (error) {
+            this.dispatchMessage('System', 'Error accessing microphone:' + error, 'Error');
             console.error('Error accessing microphone:', error);
         }
     }

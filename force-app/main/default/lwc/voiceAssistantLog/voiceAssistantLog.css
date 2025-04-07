@@ -44,6 +44,11 @@
     background: #7BA8FF;
 }
 
+.message-bubble[data-state="System"] {
+    margin-right: auto;
+    background: #FFFF00;
+}
+
 .message-text {
     margin-bottom: 4px;
     font-size: 14px;
