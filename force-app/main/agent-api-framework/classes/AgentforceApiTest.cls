@@ -103,27 +103,25 @@ private class AgentforceApiTest {
         }
         
         private String getStartSessionResponse() {
-            AgentforceResponseDto response = new AgentResponseDto();
+            AgentResponseDto response = new AgentResponseDto();
             response.sessionId = MOCK_SESSION_ID;
             response.messages = new List<AgentResponseDto.Message>{
-                new AgentResponseDto.Message(
-                    type = 'Inform',
-                    id = System.UUID.randomUUID().toString(),
-                    message = 'Session started successfully.'
-                )
+                new AgentResponseDto.Message()
             };
+            response.messages[0].type = 'Inform';
+            response.messages[0].id = System.UUID.randomUUID().toString();
+            response.messages[0].message = 'Session started successfully.';
             return JSON.serialize(response);
         }
         
         private String getMessageResponse() {
             AgentResponseDto response = new AgentResponseDto();
             response.messages = new List<AgentResponseDto.Message>{
-                new AgentResponseDto.Message(
-                    type = 'Inform',
-                    id = System.UUID.randomUUID().toString(),
-                    message = 'Here are your routes.'
-                )
+                new AgentResponseDto.Message()
             };
+            response.messages[0].type = 'Inform';
+            response.messages[0].id = System.UUID.randomUUID().toString();
+            response.messages[0].message = 'Here are your routes.';
             return JSON.serialize(response);
         }
     }

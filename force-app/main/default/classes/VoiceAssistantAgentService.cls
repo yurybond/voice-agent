@@ -46,7 +46,6 @@ public inherited sharing class VoiceAssistantAgentService {
         AgentResponse ear = new AgentResponse();
         ear.command = userMessage;
 
-        AgentforceApi agentApi = new AgentforceApi();
         try {
             if (String.isBlank(sessionId)) {
                 AgentforceApi agentApi = new AgentforceApi();

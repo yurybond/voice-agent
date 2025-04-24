@@ -115,6 +115,7 @@ export default class VoiceAssistant extends LightningElement {
 
             const position = await this.getCurrentLocation();
             const response = await processVoiceInput({
+                agentDevName: this.agentName,
                 userInput: transcript,
                 latitude: position.coords.latitude,
                 longitude: position.coords.longitude,

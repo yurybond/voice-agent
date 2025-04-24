@@ -1,4 +1,4 @@
-public inherited sharing class AgentforceSelector {
+public without sharing class AgentforceSelector {
     public List<BotDefinition> getByDevName(List<String> developerNamesList) {
     
         return [
