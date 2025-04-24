@@ -1,6 +1,6 @@
 public class AgentResponseDto {
+    public String sessionId;
     public List<Message> messages;
-    public Links XX_links;
     
     public class Message {
         public String type;
@@ -10,16 +10,6 @@ public class AgentResponseDto {
         public Boolean isContentSafe;
         public String message;
         public List<Object> result;
-    }
-    
-    public class Links {
-        public Object self;
-        public Link messages;
-        public Link session;
-        public Link XXend;
-    }
-    
-    public class Link {
-        public String href;
+        public List<Object> citedReferences;
     }
 }

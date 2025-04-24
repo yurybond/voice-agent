@@ -1,10 +1,10 @@
 public class AgentSyncMessageRequestDto {
-    public Message message;
+    public Message message = new Message();
     public List<AgentVariableRequestDto> variables;
     
     public class Message {
-        public Integer sequenceId;
-        public String type;
+        public Long sequenceId = System.currentTimeMillis();
+        public String type = 'Text';
         public String text;
     }
 }
