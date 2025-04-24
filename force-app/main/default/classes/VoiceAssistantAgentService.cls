@@ -8,11 +8,11 @@ public inherited sharing class VoiceAssistantAgentService {
         public String sessionId { get; set; }
     }
 
-    public static AgentResponse passCommandToAgentforce(Id contact, String userMessage, Location location, String sessionId) {
+    public static AgentResponse passCommandToAgentforce(String agentDevName, Id contact, String userMessage, Location location, String sessionId) {
         AgentResponse ear = new AgentResponse();
         ear.command = userMessage;
         try {
-            Invocable.Action action = Invocable.Action.createCustomAction('generateAiAgentResponse', 'Driver_Support');
+            Invocable.Action action = Invocable.Action.createCustomAction('generateAiAgentResponse', agentDevName);
 
             action.setInvocationParameter('userMessage', userMessage);
             action.setInvocationParameter('Latitude', location.getLatitude().toString());
@@ -40,5 +40,45 @@ public inherited sharing class VoiceAssistantAgentService {
             ear.agentResponse = 'Error invoking Java action: ' + e.getMessage();
         }
         return ear;
+    }
+
+    public static AgentResponse passCommandToAgentforceViaApi(String agentDevName, String timezone, Id contact, String userMessage, Location location, String sessionId) {
+        AgentResponse ear = new AgentResponse();
+        ear.command = userMessage;
+
+        AgentforceApi agentApi = new AgentforceApi();
+        try {
+            if (String.isBlank(sessionId)) {
+                AgentforceApi agentApi = new AgentforceApi();
+                agentApi.setAgentforceAgent(agentDevName)
+                    .setTimezone(timezone)
+                    .setVariable('$Context.Contact', (String)contact)
+                    .setVariable('$Context.Latitude', location.getLatitude().toString())
+                    .setVariable('$Context.Longitude', location.getLongitude().toString())
+                    .startSession();
+
+                sessionId = ear.sessionId = agentApi.getAgentforceSessionId();
+            }
+
+            AgentforceApi agentApiMessage = new AgentforceApi();
+            AgentResponseDto resp = agentApiMessage
+                .setAgentforceSessionId(sessionId)
+                .setVariable('$Context.Contact', (String)contact)
+                .setVariable('$Context.Latitude', location.getLatitude().toString())
+                .setVariable('$Context.Longitude', location.getLongitude().toString())
+                .sendMessage(userMessage);
+            
+            ear.agentResponse = resp.messages[0].message;
+        } catch (Exception e) {
+            ear.agentResponse = 'Agentforce error: ' + e.getMessage();
+        }
+        return ear;
+    }
+
+    public static void stopSession(String sessionId) {
+    AgentforceApi agentApiStopSession = new AgentforceApi();
+    agentApiStopSession
+        .setAgentforceSessionId(sessionId)
+        .stopSession();
     }
 }
