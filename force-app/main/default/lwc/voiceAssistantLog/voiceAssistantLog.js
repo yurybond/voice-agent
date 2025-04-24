@@ -3,7 +3,7 @@ import { subscribe, unsubscribe, MessageContext } from 'lightning/messageService
 import VOICE_MESSAGE_CHANNEL from '@salesforce/messageChannel/VoiceMessageChannel__c';
 
 export default class VoiceAssistantLog extends LightningElement {
-    @api showErrors = false;
+    @api isDebugMode = false;
     @track messages = [];
     subscription = null;
 
@@ -25,7 +25,7 @@ export default class VoiceAssistantLog extends LightningElement {
     }
 
     handleMessage(message) {
-        if ( message.type === 'Error' && !this.showErrors ) {
+        if ( message.type === 'Error' && !this.isDebugMode ) {
             return;
         }
 
