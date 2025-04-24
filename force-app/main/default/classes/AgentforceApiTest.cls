@@ -1,5 +1,5 @@
 @IsTest
-private class AgentforceAPITest {
+private class AgentforceApiTest {
     private static final String MOCK_TOKEN = 'mock_token';
     private static final String MOCK_SESSION_ID = 'mock_session_id';
     

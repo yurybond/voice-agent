@@ -1,64 +1,41 @@
 public class AgentforceApi {
     private static final String BASE_URL = 'callout:AgentforceAPI';
+    private static final String INSTANCE_URL = 'https://orgfarm-82d75052d9-dev-ed.develop.my.salesforce.com';
+
     
-    public class AgentSession {
-        @AuraEnabled public String sessionId { get; set; }
-        @AuraEnabled public String status { get; set; }
-    }
     
-    public class AgentResponse {
-        @AuraEnabled public String content { get; set; }
-        @AuraEnabled public String sessionId { get; set; }
-    }
-    
-    public static AgentSession startSession(String agentName) {
+    public static AgentResponseDto startSession(String agentName, Id contactId, Location location) {
         HttpRequest req = new HttpRequest();
         req.setEndpoint(BASE_URL + '/agents/' + agentName + '/sessions');
         req.setMethod('POST');
-        req.setHeader('Authorization', 'Bearer ' + AgentforceAuthManager.getAccessToken());
         req.setHeader('Content-Type', 'application/json');
+
+        AgentSessionStartRequestDto requestBody = new AgentSessionStartRequestDto();
+        requestBody.externalSessionKey = 'session_' + System.currentTimeMillis();
+        requestBody.instanceConfig = new AgentSessionStartRequestDto.InstanceConfig();
+        requestBody.instanceConfig.endpoint = BASE_URL + '/agents/' + agentName;
+        requestBody.streamingCapabilities = new AgentSessionStartRequestDto.StreamingCapabilities();
+        requestBody.streamingCapabilities.chunkTypes = new List<String>{'Text'};
+        requestBody.bypassUser = true;
+        requestBody.variables = new List<AgentVariableRequestDto>();
+        AgentVariableRequestDto contact = new AgentVariableRequestDto('$Conntact', contactId);
+        AgentVariableRequestDto latitude = new AgentVariableRequestDto('$Latitude', location.getLatitude().toString());
+        AgentVariableRequestDto longitude = new AgentVariableRequestDto('$Longitude', location.getLongitude().toString());
+        requestBody.variables.add(contact);
+        requestBody.variables.add(latitude);
+        requestBody.variables.add(longitude);
+        req.setBody(JSON.serialize(requestBody));
         
         Http http = new Http();
         HttpResponse res = http.send(req);
         
         if (res.getStatusCode() == 201) {
-            Map<String, Object> response = (Map<String, Object>)JSON.deserializeUntyped(res.getBody());
-            AgentSession session = new AgentSession();
-            session.sessionId = (String)response.get('sessionId');
-            session.status = (String)response.get('status');
-            return session;
+            AgentResponseDto response = (AgentResponseDto)JSON.deserialize(res.getBody(), AgentResponseDto.class);
+            return response;
         }
         
         throw new AgentforceException('Failed to start session: ' + res.getBody());
     }
-    
-    @AuraEnabled
-    public static AgentResponse sendMessage(String agentName, String sessionId, String message) {
-        HttpRequest req = new HttpRequest();
-        req.setEndpoint(BASE_URL + '/agents/' + agentName + '/sessions/' + sessionId + '/messages');
-        req.setMethod('POST');
-        req.setHeader('Authorization', 'Bearer ' + AgentforceAuthManager.getAccessToken());
-        req.setHeader('Content-Type', 'application/json');
-        
-        Map<String, Object> body = new Map<String, Object>{
-            'content' => message,
-            'role' => 'user'
-        };
-        req.setBody(JSON.serialize(body));
-        
-        Http http = new Http();
-        HttpResponse res = http.send(req);
-        
-        if (res.getStatusCode() == 200) {
-            Map<String, Object> response = (Map<String, Object>)JSON.deserializeUntyped(res.getBody());
-            AgentResponse agentResponse = new AgentResponse();
-            agentResponse.content = (String)response.get('content');
-            agentResponse.sessionId = sessionId;
-            return agentResponse;
-        }
-        
-        throw new AgentforceException('Failed to send message: ' + res.getBody());
-    }
-    
+ 
     public class AgentforceException extends Exception {}
 }
