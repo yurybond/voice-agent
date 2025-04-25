@@ -14,4 +14,13 @@ public with sharing class VoiceAssistantController {
             throw new AuraHandledException('Error processing voice input: ' + e.getMessage());
         }
     }
+
+    @AuraEnabled
+    public static void stopSession(String agentSessionId) {
+        try {
+            VoiceAssistantAgentService.stopSession(agentSessionId);
+        } catch (Exception e) {
+            throw new AuraHandledException('Error finishing session: ' + e.getMessage());
+        }
+    }
 }

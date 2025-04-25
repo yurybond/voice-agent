@@ -56,9 +56,10 @@ public inherited sharing class VoiceAssistantAgentService {
                     .setVariable('$Context.Longitude', location.getLongitude().toString())
                     .startSession();
 
-                sessionId = ear.sessionId = agentApi.getAgentforceSessionId();
-            }
+                sessionId = agentApi.getAgentforceSessionId();
+            } 
 
+            ear.sessionId = sessionId;
             AgentforceApi agentApiMessage = new AgentforceApi();
             AgentResponseDto resp = agentApiMessage
                 .setAgentforceSessionId(sessionId)

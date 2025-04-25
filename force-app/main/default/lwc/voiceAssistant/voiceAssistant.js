@@ -3,6 +3,7 @@ import { publish, MessageContext } from 'lightning/messageService';
 import { wire } from 'lwc';
 import VOICE_MESSAGE_CHANNEL from '@salesforce/messageChannel/VoiceMessageChannel__c';
 import processVoiceInput from '@salesforce/apex/VoiceAssistantController.processVoiceInput';
+import stopSession from '@salesforce/apex/VoiceAssistantController.stopSession';
 
 export default class VoiceAssistant extends LightningElement {
     @api agentName = ''; //reserverd for future use
@@ -26,7 +27,7 @@ export default class VoiceAssistant extends LightningElement {
                 this.synthesis = window.speechSynthesis;
             }
         } catch (error) {
-            console.error('Error initializing voice capabilities:', error);
+            this.dispatchMessage('System', 'Error initializing voice capabilities:' + error, 'Error');
         }
     }
 
@@ -40,7 +41,7 @@ export default class VoiceAssistant extends LightningElement {
         };
 
         this.recognition.onerror = (event) => {
-            console.error('Speech recognition error:', event.error);
+            this.dispatchMessage('System', 'Speech recognition error:'+ event.error, 'Error');
             this.updateButtonState('PUSH_TO_START');
         };
     }
@@ -62,16 +63,22 @@ export default class VoiceAssistant extends LightningElement {
             }
             navigator.mediaDevices.getUserMedia({ audio: true })
                 .then(stream => {
-                    stream.getTracks().forEach(track => track.stop());
+                    stream.getTracks().forEach(track => {
+                            track.stop();
+                            track.onended = () => {
+                                this.dispatchMessage('System', 'Microphone was disconnected', 'Error');
+                                this.endConversation();
+                            };
+                        }
+                    );
+
                     this.processButtonClick();
                 })
                 .catch(error => {
                     this.dispatchMessage('System', 'Microphone access denied. Please check your settings.' + error, 'Error');
-                    console.error('Microphone access denied:', error);
                 });
         } catch (error) {
             this.dispatchMessage('System', 'Error accessing microphone:' + error, 'Error');
-            console.error('Error accessing microphone:', error);
         }
     }
 
@@ -121,8 +128,7 @@ export default class VoiceAssistant extends LightningElement {
                 longitude: position.coords.longitude,
                 agentSessionId: this.agentSessionId
             });
-
-            this.agentSessionId = response.agentSessionId;
+            this.agentSessionId = response.sessionId;
             this.updateButtonState('REPLYING');
             this.dispatchMessage('Assistant', response.agentResponse);
             await this.textToSpeech(response.agentResponse);
@@ -130,7 +136,6 @@ export default class VoiceAssistant extends LightningElement {
             this.startListening(); // Automatically start listening after response
         } catch (error) {
             this.dispatchMessage('System', 'Error processing voice input:' + error, 'Error');
-            console.error('Error processing voice input:', error);
             this.updateButtonState('PUSH_TO_START');
         }
     }
@@ -181,5 +186,38 @@ export default class VoiceAssistant extends LightningElement {
             'PUSH_TO_STOP': 'Push to Stop'
         };
         return textMap[this.buttonState];
+    }
+
+    disconnectedCallback() {
+        if (this.agentSessionId) {
+            stopSession({ agentSessionId: this.agentSessionId })
+                .then(() => {
+                    
+                })
+                .catch(error => {
+                    this.dispatchMessage('System', 'Error stopping session:'+ error, 'Error');
+                });
+        }
+
+        if (this.recognition) {
+            try {
+                this.recognition.stop();
+                this.recognition.abort();
+            } catch (error) {
+                this.dispatchMessage('System', 'Error stopping recognition:' + error, 'Error');
+            }
+        }
+    
+        // Stop speech synthesis
+        if (this.synthesis) {
+            try {
+                this.synthesis.cancel();
+                window.speechSynthesis.cancel();
+            } catch (error) {
+                this.dispatchMessage('System', 'Error stopping synthesis:' + error, 'Error');
+            }
+        }
+    
+        this.updateButtonState('PUSH_TO_START');
     }
 }
