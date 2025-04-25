@@ -16,10 +16,6 @@
         <apexClass>VoiceCommandController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <externalCredentialPrincipalAccesses>
-        <enabled>true</enabled>
-        <externalCredentialPrincipal>AgentApiCreds-Experience User</externalCredentialPrincipal>
-    </externalCredentialPrincipalAccesses>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.AccountNumber</field>

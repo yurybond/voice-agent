@@ -72,6 +72,7 @@ public class AgentforceApi {
         req.setEndpoint(BASE_URL + '/agents/' + this.AgentforceAgentId + '/sessions');
         req.setMethod('POST');
         req.setHeader('Content-Type', 'application/json');
+        req.setTimeout(10000);
 
         AgentSessionStartRequestDto requestBody = new AgentSessionStartRequestDto();
         requestBody.tz = this.UserTimezone;
@@ -102,6 +103,7 @@ public class AgentforceApi {
         req.setEndpoint(BASE_URL + '/sessions/' + this.AgentforceSessionId + '/messages');
         req.setMethod('POST');
         req.setHeader('Content-Type', 'application/json');
+        req.setTimeout(60000);
 
         AgentSyncMessageRequestDto requestBody = new AgentSyncMessageRequestDto();
         requestBody.message.text = message;
@@ -129,6 +131,7 @@ public class AgentforceApi {
         req.setEndpoint(BASE_URL + '/sessions/' + this.AgentforceSessionId);
         req.setMethod('DELETE');
         req.setHeader('x-session-end-reason', 'UserRequest');
+        req.setTimeout(10000);
 
         Http http = new Http();
         HttpResponse res = http.send(req);
@@ -140,17 +143,3 @@ public class AgentforceApi {
  
     public class AgentforceException extends Exception {}
 }
-
-/**
-         if (location != null) {
-            dto.variables.add(new AgentVariableRequestDto('$Context.Latitude', 
-                String.valueOf(location.getLatitude())));
-            dto.variables.add(new AgentVariableRequestDto('$Context.Longitude', 
-                String.valueOf(location.getLongitude())));
-        }
-        
-        // Add contact if provided
-        if (String.isNotBlank(contactId)) {
-            dto.variables.add(new AgentVariableRequestDto('$Context.Contact', contactId));
-        }
- */
