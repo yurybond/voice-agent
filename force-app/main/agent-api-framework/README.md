@@ -75,10 +75,14 @@ agentApiStopSession
 - `$Context.Longitude`: User's longitude
 - `$Context.EndUserLanguage`: User's language preference
 
-## Class Diagram
+## Framework Architecture
 
 ```mermaid
 classDiagram
+    AgentforceApi --> AgentSessionStartRequestDto
+    AgentforceApi --> AgentSyncMessageRequestDto
+    AgentforceApi --> AgentResponseDto
+    AgentforceApi --> AgentforceSelector
     AgentSessionStartRequestDto --> AgentVariableRequestDto
     AgentSessionStartRequestDto --> "InstanceConfig"
     AgentSessionStartRequestDto --> "StreamingCapabilities"
@@ -86,7 +90,28 @@ classDiagram
     AgentResponseDto --> "Message"
     AgentResponseDto --> "Links"
     AgentResponseDto --> "Result"
-    AgentResponseDto --> "ResultValue"
+    
+    class AgentforceApi {
+        -String agentSessionId
+        -String agentName
+        -String timezone
+        -Map<String,String> variables
+        +setAgentforceAgent(String) AgentforceApi
+        +setTimezone(String) AgentforceApi
+        +setVariable(String,String) AgentforceApi
+        +setAgentforceSessionId(String) AgentforceApi
+        +getAgentforceSessionId() String
+        +startSession() AgentResponseDto
+        +sendMessage(String) AgentResponseDto
+        +stopSession() void
+    }
+    
+    class AgentforceSelector {
+        -static AgentforceSelector instance
+        +getInstance() AgentforceSelector
+        +getByDevName(String) BotDefinition
+        +getByDevName(List~String~) List~BotDefinition~
+    }
     
     class AgentSessionStartRequestDto {
         +String externalSessionKey
@@ -94,43 +119,43 @@ classDiagram
         +String tz
         +List~AgentVariableRequestDto~ variables
         +String featureSupport
-        +StreamingCapabilities streamingCapabilities
+        +StreamingCapabilities capabilities
         +Boolean bypassUser
         +String toJson()
-        +static create(String, String, Location)
+        +static create(String,String,Location) AgentSessionStartRequestDto
     }
-
+    
+    class AgentSyncMessageRequestDto {
+        +Message message
+        +Integer sequenceId
+        +String type
+        +String text
+        +String toJson()
+    }
+    
+    class AgentResponseDto {
+        +List~Message~ messages
+        +Links _links
+        +String toJson()
+        +static fromJson(String) AgentResponseDto
+    }
+    
     class AgentVariableRequestDto {
         +String name
         +String type
         +String value
         +String toJson()
-        +static createLanguageVariable(String)
+        +static createLanguageVariable(String) AgentVariableRequestDto
     }
-
-    class AgentSyncMessageRequestDto {
-        +Message message
-        +String toJson()
-    }
-
-    class AgentResponseDto {
-        +List~Message~ messages
-        +Links _links
-        +String toJson()
-        +static fromJson(String)
-    }
-
+    
     class AgentforceTokenExchange {
-        +Auth.OAuthResponse exchangeToken(Auth.TokenExchangeRequest)
+        +exchangeToken(Auth.TokenExchangeRequest) Auth.OAuthResponse
     }
 ```
 
-## Documentation
-
-This framework provides DTOs and utilities for interacting with Salesforce Agentforce API:
-
-- `AgentSessionStartRequestDto`: Handles session initialization
-- `AgentVariableRequestDto`: Manages context variables
-- `AgentSyncMessageRequestDto`: Handles message requests
-- `AgentResponseDto`: Processes agent responses
-- `AgentforceTokenExchange`: Manages OAuth token exchange
+This diagram shows:
+- Main API class and its relationships
+- DTOs for request/response handling
+- Selector for data access
+- Token exchange for authentication
+- Helper classes and their methods
