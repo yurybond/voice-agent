@@ -46,7 +46,7 @@ public without sharing class RouteDataService {
             }
             routsWrapper.add(routeWrapper);
         }
-
+        routsWrapper.sort(new PickUpDateCompare());
         output.Prompt = JSON.serialize(routsWrapper);
         responses.add(output);
 
@@ -86,5 +86,21 @@ public without sharing class RouteDataService {
         public String address;
         public String timezone;
         public String phone;
+    }
+
+    public class PickUpDateCompare implements Comparator<Route> {
+        public Integer compare(Route route1, Route route2) {
+
+            Long value1 = route1.expectedArrivalStartTime != null ? 0 : route1.expectedArrivalStartTime.getTime();
+            Long value2 = route2.expectedArrivalStartTime != null ? 0 : route2.expectedArrivalStartTime.getTime();
+
+            if (value1 == value2) {
+                return 0;
+            } else if (value1 > value2) {
+                return 1;
+            } else {
+                return -1;
+            }
+        }
     }
 }
