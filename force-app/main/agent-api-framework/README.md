@@ -77,25 +77,26 @@ agentApiStopSession
 
 ## Framework Architecture
 
+## Framework Architecture
+
 ```mermaid
 classDiagram
-    AgentforceApi --> AgentSessionStartRequestDto
-    AgentforceApi --> AgentSyncMessageRequestDto
-    AgentforceApi --> AgentResponseDto
-    AgentforceApi --> AgentforceSelector
-    AgentSessionStartRequestDto --> AgentVariableRequestDto
-    AgentSessionStartRequestDto --> "InstanceConfig"
-    AgentSessionStartRequestDto --> "StreamingCapabilities"
-    AgentSyncMessageRequestDto --> "Message"
-    AgentResponseDto --> "Message"
-    AgentResponseDto --> "Links"
-    AgentResponseDto --> "Result"
+    AgentforceApi ..> AgentSessionStartRequestDto : creates
+    AgentforceApi ..> AgentSyncMessageRequestDto : creates
+    AgentforceApi ..> AgentResponseDto : receives
+    AgentforceApi ..> AgentforceSelector : uses
+    AgentSessionStartRequestDto *-- InstanceConfig
+    AgentSessionStartRequestDto *-- StreamingCapabilities
+    AgentSessionStartRequestDto *-- AgentVariableRequestDto
+    AgentSyncMessageRequestDto *-- Message
+    AgentResponseDto *-- Message
+    AgentResponseDto *-- Links
     
     class AgentforceApi {
         -String agentSessionId
         -String agentName
         -String timezone
-        -Map<String,String> variables
+        -Map~String,String~ variables
         +setAgentforceAgent(String) AgentforceApi
         +setTimezone(String) AgentforceApi
         +setVariable(String,String) AgentforceApi
@@ -119,25 +120,10 @@ classDiagram
         +String tz
         +List~AgentVariableRequestDto~ variables
         +String featureSupport
-        +StreamingCapabilities capabilities
+        +StreamingCapabilities streamingCapabilities
         +Boolean bypassUser
         +String toJson()
         +static create(String,String,Location) AgentSessionStartRequestDto
-    }
-    
-    class AgentSyncMessageRequestDto {
-        +Message message
-        +Integer sequenceId
-        +String type
-        +String text
-        +String toJson()
-    }
-    
-    class AgentResponseDto {
-        +List~Message~ messages
-        +Links _links
-        +String toJson()
-        +static fromJson(String) AgentResponseDto
     }
     
     class AgentVariableRequestDto {
@@ -148,8 +134,22 @@ classDiagram
         +static createLanguageVariable(String) AgentVariableRequestDto
     }
     
-    class AgentforceTokenExchange {
-        +exchangeToken(Auth.TokenExchangeRequest) Auth.OAuthResponse
+    class AgentSyncMessageRequestDto {
+        +Message message
+        +String toJson()
+    }
+    
+    class Message {
+        +Integer sequenceId
+        +String type
+        +String text
+    }
+    
+    class AgentResponseDto {
+        +List~Message~ messages
+        +Links _links
+        +String toJson()
+        +static fromJson(String) AgentResponseDto
     }
 ```
 
