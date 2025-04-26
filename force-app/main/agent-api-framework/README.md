@@ -77,8 +77,6 @@ agentApiStopSession
 
 ## Framework Architecture
 
-## Framework Architecture
-
 ```mermaid
 classDiagram
     AgentforceApi ..> AgentSessionStartRequestDto : creates
