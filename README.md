@@ -10,6 +10,41 @@
 <img width="1010" alt="Screenshot 2025-03-20 at 17 48 49" src="https://github.com/user-attachments/assets/7e01135d-b372-4b44-a1b7-7fd47bc59124" />
 
 
+## Flowchart
+
+```mermaid
+
+flowchart TD
+    TruckDriver["Truck Driver (Speaks Commands)"] -->|Voice Input| MobileApp["Mobile App (Mobile Publisher)"]
+    MobileApp -->|Wraps| WebApp["Web Application (LWR)"]
+    WebApp -->|Captures Voice| VoiceAPI["Browser Voice API (Recognition)"]
+    VoiceAPI -->|Transcribes Text| WebApp
+    WebApp -->|Sends Request| ApexController["Apex Controller"]
+    ApexController -->|Invokes| Agentforce["Agentforce AI"]
+    Agentforce -->|AI Response| ApexController
+    ApexController -->|Returns Data| WebApp
+    WebApp -->|Synthesizes Voice| VoiceAPI
+    VoiceAPI -->|Speaks Response| MobileApp
+    MobileApp -->|Plays Voice| TruckDriver
+
+    subgraph Salesforce Platform
+      WebApp
+      ApexController
+      Agentforce
+    end
+
+    classDef mobilePublisher fill:#f4f6f9,stroke:#00a1e0,stroke-width:2px;
+    classDef lwr fill:#ffffff,stroke:#00a1e0,stroke-width:2px;
+    classDef apex fill:#f3f2f2,stroke:#0070d2,stroke-width:2px;
+    classDef agentforce fill:#eef4ff,stroke:#032d60,stroke-width:2px;
+
+    class MobileApp mobilePublisher;
+    class WebApp lwr;
+    class ApexController apex;
+    class Agentforce agentforce;
+
+```
+
 
 ## Data Model
 

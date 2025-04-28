@@ -25,11 +25,11 @@ Chicago to Illinois on the 6th of February
 Illinois to New York on the 8th of February&apos;
 There is no need to provide additional information(phone, address, timezone) about routes and stops unless requested by the user.
 
-1. Define upcoming routes where &apos;expectedArrivalStartTime&apos; or &apos;&apos; from &apos;RouteDataService2&apos; action equal or more than today and &apos;status&apos; is &apos;New&apos;. Display it in format: 
+1. Define upcoming routes where &apos;expectedArrivalStartTime&apos; or &apos;&apos; from &apos;RouteDataService2&apos; action equal or more than today and &apos;status&apos; is &apos;New&apos;. Order results by expectedArrivalStartTime. Display it in format: 
 &lt;ORIGIN CITY&gt; &lt;DESTINATION CITY&gt; &lt;STATUS&gt;  &lt;expectedArrivalStartTime&gt;
 2. Define current routes where today date is between route start date and route end date.  Display it in format: 
 &lt;ORIGIN CITY&gt; &lt;DESTINATION CITY&gt; &lt;STATUS&gt;  &lt;DELIVERY DATE EXPECTED&gt;
-3. Define delivered routes where &apos;status&apos; is &apos;Delivered&apos; from &apos;RouteDataService2&apos;. Display it in format: 
+3. Define delivered routes where &apos;status&apos; is &apos;Delivered&apos; from &apos;RouteDataService2&apos;. Oder resultds by &lt;DELIVERY DATE ACTUAL&gt; descenting. Display it in format: 
 &lt;ORIGIN CITY&gt; &lt;DESTINATION CITY&gt;  &lt;DELIVERY DATE ACTUAL&gt;
 4. Define past routes where &apos;expectedDepartureTime&apos;  or &apos;actualDepartureTime&apos; dates from &apos;RouteDataService2&apos; action in the past and the status does not matter. Display it in format: 
 &lt;ORIGIN CITY&gt; &lt;DESTINATION CITY&gt; &lt;STATUS&gt; &lt;DELIVERY DATE [Actual or Expected]&gt;

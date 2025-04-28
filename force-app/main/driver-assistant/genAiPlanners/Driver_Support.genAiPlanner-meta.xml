@@ -13,9 +13,6 @@
     <genAiPlugins>
         <genAiPluginName>Driver_wants_to_report_route_event</genAiPluginName>
     </genAiPlugins>
-    <genAiPlugins>
-        <genAiPluginName>SvcCopilotTmpl__GeneralFAQ</genAiPluginName>
-    </genAiPlugins>
     <masterLabel>Driver Support</masterLabel>
     <plannerType>AiCopilot__ReAct</plannerType>
 </GenAiPlanner>
