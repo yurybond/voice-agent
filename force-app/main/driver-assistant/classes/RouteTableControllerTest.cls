@@ -7,7 +7,8 @@ private class RouteTableControllerTest {
         Facility__c facility = new Facility__c(
             Name = 'Test Facility',
             Address__City__s = 'New York',
-            Address__StateCode__s = 'NY'
+            Address__StateCode__s = 'NY',
+            Address__CountryCode__s = 'US'
         );
         insert facility;
         
