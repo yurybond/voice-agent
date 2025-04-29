@@ -1,13 +1,12 @@
 # Voice Assistant on Agentforce
 
+## Test Instructions
 
 
 
-##Manual Configuration
+## Solution Landscape Diagram
 
-
-1. Setup->User Interface->Enable Address Field->Save
-<img width="1010" alt="Screenshot 2025-03-20 at 17 48 49" src="https://github.com/user-attachments/assets/7e01135d-b372-4b44-a1b7-7fd47bc59124" />
+![Driver Assistant - Driver Assistant Landscape](https://github.com/user-attachments/assets/50bb5a1a-7398-4b5f-9b86-34c2e746eebb)
 
 
 ## Flowchart
@@ -33,10 +32,10 @@ flowchart TD
       Agentforce
     end
 
-    classDef mobilePublisher fill:#7BA8FF,stroke:#4A71BD,stroke-width:2px;
-    classDef lwr fill:#7BA8FF,stroke:#4A71BD,stroke-width:2px;
-    classDef apex fill:#7BA8FF,stroke:#4A71BD,stroke-width:2px;
-    classDef agentforce fill:#7BA8FF,stroke:#4A71BD,stroke-width:2px;
+    classDef mobilePublisher fill:#7BA8FF,color:#060606,stroke:#4A71BD,stroke-width:2px;
+    classDef lwr fill:#7BA8FF,color:#060606,stroke:#4A71BD,stroke-width:2px;
+    classDef apex fill:#7BA8FF,color:#060606,stroke:#4A71BD,stroke-width:2px;
+    classDef agentforce fill:#7BA8FF,color:#060606,stroke:#4A71BD,stroke-width:2px;
 
     class MobileApp mobilePublisher;
     class WebApp lwr;
