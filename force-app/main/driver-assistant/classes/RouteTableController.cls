@@ -24,6 +24,7 @@ public with sharing class RouteTableController {
                 ORDER BY Sequence_Number__c) 
             FROM Route__c
             WHERE Id IN (SELECT Route__c FROM Route_Assignment__c WHERE Contact__c = :contactId)
+            ORDER BY CreatedDate DESC
         ];
     }
 }

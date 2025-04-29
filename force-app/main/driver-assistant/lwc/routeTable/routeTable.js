@@ -12,22 +12,26 @@ export default class RouteTable extends NavigationMixin(LightningElement) {
             label: 'Route',
             fieldName: 'url',
             type: 'url',
+            sortable: true,
             typeAttributes: { label: { fieldName: 'name' } }
         },
         {
             label: 'Status',
-            fieldName: 'status'
+            fieldName: 'status',
+            sortable: true
         },
         {
             label: 'Origin',
             fieldName: 'originUrl',
             type: 'url',
+            sortable: true,
             typeAttributes: { label: { fieldName: 'originLocation' } }
         },
         {
             label: 'Origin Arrival',
             fieldName: 'originArrival',
             type: 'date',
+            sortable: true,
             typeAttributes: {
                 year: "numeric",
                 month: "long",
@@ -40,12 +44,14 @@ export default class RouteTable extends NavigationMixin(LightningElement) {
             label: 'Destination',
             fieldName: 'destinationUrl',
             type: 'url',
+            sortable: true,
             typeAttributes: { label: { fieldName: 'destinationLocation' } }
         },
         {
             label: 'Destination Arrival',
             fieldName: 'destinationArrival',
             type: 'date',
+            sortable: true,
             typeAttributes: {
                 year: "numeric",
                 month: "long",
@@ -55,6 +61,8 @@ export default class RouteTable extends NavigationMixin(LightningElement) {
             }
         }
     ];
+    sortBy = 'originArrival';
+    sortDirection = 'desc';
 
     @wire(getRoutes, {contactId: '$recordId'})
     wiredRoutes({ error, data }) {
@@ -89,6 +97,7 @@ export default class RouteTable extends NavigationMixin(LightningElement) {
                         null
                 };
             });
+            this.sortData(this.sortBy, this.sortDirection); 
             this.error = undefined;
         } else if (error) {
             console.error('Error loading routes:', error);
@@ -99,5 +108,23 @@ export default class RouteTable extends NavigationMixin(LightningElement) {
 
     generateUrl(pageReference) {
         return pageReference;
+    }
+
+    handleSort(event) {
+        const { fieldName: sortedBy, sortDirection } = event.detail;
+        this.sortBy = sortedBy;
+        this.sortDirection = sortDirection;
+        this.sortData(sortedBy, sortDirection);
+    }
+
+    sortData(fieldname, direction) {
+        let parseData = JSON.parse(JSON.stringify(this.routes));
+        let keyValue = (a) => a[fieldname] ? a[fieldname].toLowerCase() : '';
+        parseData.sort((a, b) => {
+            let valueA = keyValue(a);
+            let valueB = keyValue(b);
+            return direction === 'asc' ? (valueA > valueB ? 1 : -1) : (valueA < valueB ? 1 : -1);
+        });
+        this.routes = parseData;
     }
 }

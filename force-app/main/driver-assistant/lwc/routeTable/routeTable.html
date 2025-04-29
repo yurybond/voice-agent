@@ -6,6 +6,9 @@
                     key-field="id"
                     data={routes}
                     columns={columns}
+                    onsort={handleSort}
+                    sorted-by={sortBy}
+                    sorted-direction={sortDirection}
                     hide-checkbox-column>
                 </lightning-datatable>
             </template>

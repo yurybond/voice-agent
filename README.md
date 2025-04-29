@@ -33,10 +33,10 @@ flowchart TD
       Agentforce
     end
 
-    classDef mobilePublisher fill:#f4f6f9,stroke:#00a1e0,stroke-width:2px;
-    classDef lwr fill:#ffffff,stroke:#00a1e0,stroke-width:2px;
-    classDef apex fill:#f3f2f2,stroke:#0070d2,stroke-width:2px;
-    classDef agentforce fill:#eef4ff,stroke:#032d60,stroke-width:2px;
+    classDef mobilePublisher fill:#7BA8FF,stroke:#4A71BD,stroke-width:2px;
+    classDef lwr fill:#7BA8FF,stroke:#4A71BD,stroke-width:2px;
+    classDef apex fill:#7BA8FF,stroke:#4A71BD,stroke-width:2px;
+    classDef agentforce fill:#7BA8FF,stroke:#4A71BD,stroke-width:2px;
 
     class MobileApp mobilePublisher;
     class WebApp lwr;
